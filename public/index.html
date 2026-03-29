@@ -411,14 +411,7 @@ async function startAn(){
     const reader=res.body.getReader();const dec=new TextDecoder();let full='';
     setSt('📝 Analiz tamamlanıyor...');setPct(90);
     while(true){const{done,value}=await reader.read();if(done)break;const chunk=dec.decode(value);for(const line of chunk.split('\n')){if(line.startsWith('data: ')&&line!=='data: [DONE]'){try{const d=JSON.parse(line.slice(6));if(d.text)full+=d.text;}catch{}}}}
-    pAnswer=full
-  .replace(/\*\*/g,'')
-  .replace(/^[ \t]*#{1,3}\s*/gm,'')
-  .replace(/^[ \t]*>+\s*/gm,'')
-  .replace(/^[ \t]*--+$/gm,'')
-  .replace(/^[ \t]*\*(?!\*)/gm,'•')
-  .replace(/\[[\d]+\]/g,'')
-  .trim();
+   pAnswer=full.replace(/\*\*/g,'').replace(/^#{1,3}\s*/gm,'').replace(/^-{3,}$/gm,'').replace(/\[[-]+\]/g,'').replace(/^[ \t]*\*(?!\*)/gm,'•').trim();
     stopPct();setPct(100);document.getElementById('analyzingDiv').style.display='none';showDone();
   }catch(e){
     stopPct();document.getElementById('analyzingDiv').style.display='none';
