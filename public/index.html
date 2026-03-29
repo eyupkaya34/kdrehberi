@@ -262,23 +262,8 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
 <main><div class="container">
 
   <div class="hero">
-    <h1>Aklınıza Takılan Her Şeyi<br>Sade ve Anlaşılır Şekilde Öğrenin</h1>
-    <p>Bina riskinizi öğrenin, haklarınızı anlayın ve sonraki adımları netleştirin.</p>
-    <div class="counter-badge"><strong>1.000+</strong><span>Belge Analiz Edildi</span></div>
-    <div class="trust-badges">
-      <div class="trust-badge">🔒 <span>SSL Güvenli</span></div>
-      <div class="trust-badge">⚡ <span>Anında Analiz</span></div>
-      <div class="trust-badge">🇹🇷 <span>Türkiye'de Geliştirildi</span></div>
-    </div>
-  </div>
-
-  <div style="display:flex;flex-direction:column;gap:10px;">
-    <p class="section-label">Ne yapmak istiyorsunuz?</p>
-    <div class="guidance-btns">
-      <button class="guid-btn" onclick="setQ('Binamın deprem riski taşıyıp taşımadığını analiz etmek istiyorum. Ne yapmalıyım?')">Risk analizi yap</button>
-      <button class="guid-btn" onclick="setQ('Kentsel dönüşüm süreci nasıl işler? Adım adım açıklar mısın?')">Süreci öğren</button>
-      <button class="guid-btn" onclick="setQ('Müteahhitlerden gelen teklifleri karşılaştırırken nelere dikkat etmeliyim?')">Teklif karşılaştır</button>
-    </div>
+    <h1>Kentsel Dönüşüm<br>Rehberiniz</h1>
+    <p>Sorularınızı sorun veya belgenizi yükleyin.<br>Yapay zeka saniyeler içinde analiz eder.</p>
   </div>
 
   <div class="card">
@@ -288,31 +273,20 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
     <p style="font-size:11px;color:#A0A0A0;text-align:center;margin-top:10px;line-height:1.6;">Bu sistem ön bilgilendirme sağlar. Kesin teknik ve hukuki değerlendirme için uzman desteği gerekebilir.</p>
   </div>
 
-  <div style="display:flex;flex-direction:column;gap:10px;">
-    <p class="section-label">Örnek Sorular</p>
-    <div class="example-grid">
-      <button class="example-btn" onclick="setQ('Binam 30 yıllık, riskli olabilir mi?')"><span>Binam 30 yıllık, riskli olabilir mi?</span><span class="example-arrow">→</span></button>
-      <button class="example-btn" onclick="setQ('Kentsel dönüşüm süreci nasıl başlar?')"><span>Kentsel dönüşüm süreci nasıl başlar?</span><span class="example-arrow">→</span></button>
-      <button class="example-btn" onclick="setQ('Kiracı olarak haklarım neler?')"><span>Kiracı olarak haklarım neler?</span><span class="example-arrow">→</span></button>
-      <button class="example-btn" onclick="setQ('Müteahhit seçerken nelere dikkat etmeliyim?')"><span>Müteahhit seçerken nelere dikkat etmeliyim?</span><span class="example-arrow">→</span></button>
-    </div>
-  </div>
-
-  <div class="card">
+  <div id="chatAnswerCard" style="display:none;" class="card">
     <p style="font-size:10px;font-weight:600;color:#C9A84C;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Analiz Sonucu</p>
-    <div id="chatAnswer"><p style="font-size:13px;color:#6B7280;font-style:italic;">Analiz sonucu burada görünecek...</p></div>
+    <div id="chatAnswer"></div>
     <div id="chatExpert" style="display:none;margin-top:16px;" class="expert-dark">
       <p>Bu durumda detaylı analiz önerilir.<small>Uzman incelemesi ile riskleri netleştirebilirsiniz.</small></p>
-      <button class="btn btn-gold btn-sm" onclick="goExpert()" style="align-self:flex-start;">Detaylı analiz için uzmanla görüş</button>
+      <button class="btn btn-gold btn-sm" onclick="navTo('uzmanlar')" style="align-self:flex-start;">Uzmanla Görüş</button>
     </div>
   </div>
 
-  <!-- PDF CARD -->
   <div class="card">
     <div class="card-title">Belge Yükle ve Analiz Et</div>
     <p class="card-sub">Sözleşme, teklif dosyası veya rapor yükleyerek riskleri öğrenin</p>
     <div id="pdfDrop" class="file-drop" onclick="dropClick()" ondrop="onDrop(event)" ondragover="onDO(event)" ondragleave="onDL()">
-      <div id="dE"><div class="file-icon">📄</div><p class="file-main">PDF dosyanızı buraya bırakın veya yüklemek için tıklayın</p><p class="file-sub">Yalnızca PDF formatı desteklenir</p></div>
+      <div id="dE"><div class="file-icon">📄</div><p class="file-main">PDF dosyanızı buraya bırakın veya yüklemek için tıklayın</p><p class="file-sub">Yalnızca PDF · Maks. 30 sayfa · 10MB</p></div>
       <div id="dS" style="display:none;flex-direction:column;align-items:center;gap:6px;"><div style="font-size:28px;">✅</div><p style="font-size:13px;font-weight:600;color:#15803D;" id="pFN"></p><p style="font-size:12px;color:#9CA3AF;" id="pFI"></p><button onclick="resetPdf(event)" style="font-size:12px;color:#9CA3AF;text-decoration:underline;background:none;border:none;cursor:pointer;margin-top:6px;">Farklı dosya seç</button></div>
       <div id="dErr" style="display:none;flex-direction:column;align-items:center;gap:6px;"><div style="font-size:28px;">⚠️</div><p style="font-size:13px;font-weight:600;color:#B91C1C;">Tekrar denemek için tıklayın</p><p style="font-size:12px;color:#EF4444;">veya farklı bir PDF dosyası yükleyin</p></div>
     </div>
@@ -337,125 +311,11 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
       <div style="background:#F7F9FC;border:1px solid #E8E3DC;border-radius:8px;padding:10px 14px;font-size:12px;color:#6B7280;">📄 <span id="doneFN" style="font-weight:600;"></span></div>
       <div id="pdfSecs" class="sections"></div>
       <div class="star-box" id="starBox"><p style="font-size:13px;font-weight:600;color:#1B2E4B;">Bu analiz size yardımcı oldu mu?</p><div class="stars"><button class="star-btn" onclick="rateStar(1)" onmouseover="hvStar(1)" onmouseout="hvStar(0)">★</button><button class="star-btn" onclick="rateStar(2)" onmouseover="hvStar(2)" onmouseout="hvStar(0)">★</button><button class="star-btn" onclick="rateStar(3)" onmouseover="hvStar(3)" onmouseout="hvStar(0)">★</button><button class="star-btn" onclick="rateStar(4)" onmouseover="hvStar(4)" onmouseout="hvStar(0)">★</button><button class="star-btn" onclick="rateStar(5)" onmouseover="hvStar(5)" onmouseout="hvStar(0)">★</button></div></div>
-      <div id="starTy" style="display:none;" class="star-box"><div id="rStars" class="stars"></div><p style="font-size:14px;font-weight:600;color:#1B2E4B;">Teşekkürler!</p><p style="font-size:12px;color:#6B7280;">Uzman desteği için bize ulaşın.</p><button class="btn btn-navy btn-sm" onclick="goExpert()">Uzmanla Görüş</button></div>
-      <div id="pdfExp" style="display:none;" class="expert-dark"><p>Bu belge için detaylı inceleme önerilir.<small>Uzman incelemesi ile riskleri netleştirebilirsiniz.</small></p><button class="btn btn-gold btn-sm" onclick="goExpert()" style="align-self:flex-start;">Uzmanla Detaylı İncele</button></div>
+      <div id="starTy" style="display:none;" class="star-box"><div id="rStars" class="stars"></div><p style="font-size:14px;font-weight:600;color:#1B2E4B;">Teşekkürler!</p><p style="font-size:12px;color:#6B7280;">Uzman desteği için bize ulaşın.</p><button class="btn btn-navy btn-sm" onclick="navTo('uzmanlar')">Uzmanla Görüş</button></div>
+      <div id="pdfExp" style="display:none;" class="expert-dark"><p>Bu belge için detaylı inceleme önerilir.<small>Uzman incelemesi ile riskleri netleştirebilirsiniz.</small></p><button class="btn btn-gold btn-sm" onclick="navTo('uzmanlar')" style="align-self:flex-start;">Uzmanla Detaylı İncele</button></div>
     </div>
   </div>
 
-  <div class="big-expert">
-    <h2>Bu konuda risk almak istemiyor musunuz?</h2>
-    <p>Detaylı analiz ile daha net ve güvenli karar verin</p>
-    <button class="btn btn-gold" style="width:auto;padding:12px 28px;" onclick="goExpert()">Detaylı analiz için uzmanla görüş</button>
-    <small>İnşaat mühendisi, jeolog veya uzman danışman desteği</small>
-  </div>
-
-  <div style="display:flex;flex-direction:column;gap:10px;">
-    <p class="section-label">Neden güvenilir?</p>
-    <div class="trust-grid">
-      <div class="trust-item"><span style="color:#C9A84C;font-weight:700;">✓</span><span style="font-size:13px;font-weight:500;color:#2D2D2D;">Türkiye'ye özel içerik</span></div>
-      <div class="trust-item"><span style="color:#C9A84C;font-weight:700;">✓</span><span style="font-size:13px;font-weight:500;color:#2D2D2D;">Sade ve anlaşılır anlatım</span></div>
-      <div class="trust-item"><span style="color:#C9A84C;font-weight:700;">✓</span><span style="font-size:13px;font-weight:500;color:#2D2D2D;">Tarafsız analiz</span></div>
-      <div class="trust-item"><span style="color:#C9A84C;font-weight:700;">✓</span><span style="font-size:13px;font-weight:500;color:#2D2D2D;">Gerektiğinde uzman yönlendirme</span></div>
-    </div>
-  </div>
-
-  <div style="display:flex;flex-direction:column;gap:10px;">
-    <p class="section-label">Sık Sorulan Sorular</p>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">S: Bu uygulama hukuki tavsiye veriyor mu?</span><span class="faq-icon">+</span></button><div class="faq-a">C: Hayır. Genel bilgilendirme amaçlıdır. Uzman görüşü değildir.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">S: Yüklediğim belgeler saklanıyor mu?</span><span class="faq-icon">+</span></button><div class="faq-a">C: Hayır. Belgeler analiz sonrası otomatik olarak silinir.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">S: Hangi belgeler analiz edilebilir?</span><span class="faq-icon">+</span></button><div class="faq-a">C: Sözleşmeler, teknik şartnameler, raporlar ve resmi yazışmalar. Maksimum 30 sayfa ve 10MB.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">S: Raporu kim görebilir?</span><span class="faq-icon">+</span></button><div class="faq-a">C: Yalnızca siz. Raporlar şifreli bağlantı ile iletilir.</div></div>
-    </div>
-  </div>
-
-</div></main>
-</div>
-
-<div id="kvkkPg" style="display:none;"><div class="legal-wrap"><button class="legal-back" onclick="showPg('home')">← Geri Dön</button><div class="legal-card"><h1>KVKK Aydınlatma Metni</h1><h3>1. Veri Sorumlusu</h3><p>kentseldonusumrehber.com.tr platformu veri sorumlusudur.</p><h3>2. Hangi Veriler İşlenir</h3><p>Yüklenen belgeler, sorulan sorular ve IP adresi geçici olarak işlenir.</p><h3>3. Verilerin Kullanım Amacı</h3><p>Veriler yalnızca yapay zeka analizi için kullanılır. Üçüncü şahıslarla paylaşılmaz.</p><h3>4. Verilerin Saklanması</h3><p>Yüklenen belgeler analiz sonrası otomatik olarak silinir.</p><h3>5. Kullanıcı Hakları</h3><p>KVKK madde 11 kapsamında kişisel verilerinize erişim, düzeltme ve silme hakkına sahipsiniz.</p><h3>6. Çerezler</h3><p>Platform yalnızca temel işlevsellik için zorunlu çerezler kullanır.</p><h3>7. İletişim</h3><p>kentseldonusumrehber.com.tr</p></div></div></div>
-
-<div id="kulPg" style="display:none;"><div class="legal-wrap"><button class="legal-back" onclick="showPg('home')">← Geri Dön</button><div class="legal-card"><h1>Kullanım Koşulları</h1><h3>1. Hizmetin Amacı</h3><p>Bu platform yalnızca genel bilgilendirme amaçlıdır. Kesin hukuki, mühendislik veya yapısal karar vermez.</p><h3>2. Sorumluluk Reddi</h3><p>Platformdaki bilgiler profesyonel danışmanlık yerine geçmez. Kullanıcı, kararlarından kendisi sorumludur.</p><h3>3. Uzman Yönlendirmesi</h3><p>Ciddi durumlarda mutlaka lisanslı mimar, mühendis veya avukana başvurunuz.</p><h3>4. Hizmet Kullanımı</h3><p>Bu platformu yalnızca yasal amaçlarla kullanabilirsiniz.</p><h3>5. Değişiklik Hakkı</h3><p>Platform içeriği önceden haber verilmeksizin değiştirilebilir.</p><h3>6. İletişim</h3><p>kentseldonusumrehber.com.tr</p></div></div></div>
-
-</div>
-
-<div class="modal-overlay" id="payModal" style="display:none;" onclick="closePay()">
-  <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-head"><h3>Raporunuzu İndirin</h3><p class="modal-price">49,99 TL</p></div>
-    <div class="modal-body">
-      <div><div class="benefit-item"><span class="benefit-check">✓</span><span>8 sayfalık profesyonel PDF rapor</span></div><div class="benefit-item"><span class="benefit-check">✓</span><span>Risk değerlendirmesi ve güven skoru</span></div><div class="benefit-item"><span class="benefit-check">✓</span><span>Uzman yönlendirme kontrol listesi</span></div><div class="benefit-item"><span class="benefit-check">✓</span><span>Hemen indirin, dilediğinizle paylaşın</span></div></div>
-      <div id="payErr" style="display:none;background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:10px 12px;font-size:12px;color:#B91C1C;"></div>
-      <button class="btn btn-gold" id="payBtn" onclick="doPay()">Ödemeye Geç →</button>
-      <button onclick="devDL()" style="font-size:12px;color:#9CA3AF;text-decoration:underline;background:none;border:none;cursor:pointer;text-align:center;">Test: Ödemeyi Atla ve İndir (Geliştirici Modu)</button>
-      <div class="ssl-note">🔒 <span>256-bit SSL ile güvenli ödeme</span></div>
-      <button onclick="closePay()" style="font-size:12px;color:#9CA3AF;text-decoration:underline;background:none;border:none;cursor:pointer;text-align:center;">Vazgeç</button>
-    </div>
-  </div>
-</div>
-
-<button class="help-btn" onclick="alert('Kentsel Dönüşüm Rehberi\n\nBu platform yapay zeka destekli genel bilgilendirme sunar.\nKesin hukuki karar vermez.\n\nkentseldonusumrehber.com.tr')">?</button>
-
-<footer>
-  <div class="footer-links"><a href="#" onclick="showPg('kullanim');return false;">Kullanım Koşulları</a><a href="#" onclick="showPg('kvkk');return false;">KVKK</a></div>
-  <p class="footer-disc">kentseldonusumrehber.com.tr — Bu platform genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı vermez.<br>© 2026 Kentsel Dönüşüm Rehberi. Tüm hakları saklıdır.</p>
-  <!-- ANALİZLERİM -->
-<div class="page-content" id="pg-analizlerim">
-<main><div class="container">
-  <div class="coming-soon">
-    <div class="cs-icon">📋</div>
-    <h2>Analizlerim</h2>
-    <p>Daha önce yaptığınız PDF analizleri burada görünecek.<br>Bu özellik yakında aktif olacak.</p>
-  </div>
-</div></main>
-</div>
-
-<!-- BİLDİRİMLER -->
-<div class="page-content" id="pg-bildirimler">
-<main><div class="container">
-  <div class="coming-soon">
-    <div class="cs-icon">🔔</div>
-    <h2>Bildirimler</h2>
-    <p>Analiz sonuçları ve sistem bildirimleri burada görünecek.<br>Bu özellik yakında aktif olacak.</p>
-  </div>
-</div></main>
-</div>
-
-<!-- AYARLAR -->
-<div class="page-content" id="pg-ayarlar">
-<main><div class="container">
-  <div class="card" style="margin-top:20px;">
-    <div class="card-title">⚙️ Ayarlar ve Gizlilik</div>
-    <p class="card-sub">Hesap ve gizlilik tercihlerinizi yönetin</p>
-    <div style="display:flex;flex-direction:column;gap:16px;margin-top:16px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;">
-        <div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">Çerez Tercihleri</p><p style="font-size:12px;color:#6B7280;">Yalnızca zorunlu çerezler kullanılır</p></div>
-        <span style="font-size:12px;color:#C9A84C;font-weight:600;">Aktif</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;">
-        <div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">Veri Saklama</p><p style="font-size:12px;color:#6B7280;">Belgeler analiz sonrası otomatik silinir</p></div>
-        <span style="font-size:12px;color:#C9A84C;font-weight:600;">Aktif</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;">
-        <div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">KVKK Onayı</p><p style="font-size:12px;color:#6B7280;">İlk girişte onaylandı</p></div>
-        <button onclick="localStorage.removeItem('tok');location.reload();" style="font-size:12px;color:#EF4444;background:none;border:none;cursor:pointer;text-decoration:underline;">Sıfırla</button>
-      </div>
-    </div>
-  </div>
-</div></main>
-</div>
-
-<!-- YARDIM -->
-<div class="page-content" id="pg-yardim">
-<main><div class="container">
-  <div class="card" style="margin-top:20px;">
-    <div class="card-title">❓ Yardım Merkezi</div>
-    <p class="card-sub">Sık sorulan sorular ve destek</p>
-    <div class="faq-list" style="margin-top:16px;">
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Bu platform nasıl çalışır?</span><span class="faq-icon">+</span></button><div class="faq-a">Sorunuzu yazın veya PDF belgenizi yükleyin. Yapay zeka saniyeler içinde Türkçe analiz sunar. Sonuçlar genel bilgilendirme amaçlıdır.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Hangi belgeler destekleniyor?</span><span class="faq-icon">+</span></button><div class="faq-a">Sözleşmeler, teknik şartnameler, raporlar ve resmi yazışmalar. Maksimum 30 sayfa ve 10MB PDF formatı.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Raporu nasıl indirebilirim?</span><span class="faq-icon">+</span></button><div class="faq-a">PDF analizi tamamlandıktan sonra "Raporu İndir — 49,99 TL" butonuna tıklayın. Ödeme sonrası rapor otomatik indirilir.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">İletişim</span><span class="faq-icon">+</span></button><div class="faq-a">kentseldonusumrehber.com.tr adresinden bize ulaşabilirsiniz.</div></div>
-    </div>
-  </div>
 </div></main>
 </div>
 </footer>
