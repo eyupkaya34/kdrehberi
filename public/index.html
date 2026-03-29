@@ -487,14 +487,77 @@ async function doPay(){
 function devDL(){closePay();dlReport();}
 
 function dlReport(){
-  if(!pAnswer)return alert('Önce analiz yapın.');
-  const now=new Date();const ds=now.toLocaleString('tr-TR');
+  if(!pAnswer){alert('Önce analiz yapın.');return;}
+  const now=new Date();
+  const ds=now.toLocaleString('tr-TR');
   const secs=parseAns(pAnswer,PKEYS);
-  const sh=secs.map(s=>`<div style="margin-bottom:20px;page-break-inside:avoid;"><div style="font-size:13px;font-weight:bold;color:#1B2E4B;border-bottom:2px solid #C9A84C;padding-bottom:5px;margin-bottom:10px;">${s.label}</div><div style="font-size:12px;color:#2D2D2D;line-height:1.8;">${s.lines.map(l=>l.startsWith('•')?`<div style="display:flex;gap:8px;margin-bottom:4px;"><span style="color:#C9A84C;">•</span><span>${l.slice(1).trim()}</span></div>`:`<p style="margin-bottom:6px;">${l}</p>`).join('')}</div></div>`).join('');
-  const html=`<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>KDR Analiz Raporu</title><style>body{font-family:Arial,sans-serif;max-width:700px;margin:0 auto;padding:40px 20px;color:#2D2D2D;}@media print{body{padding:20px;}@page{margin:20mm;}}.cover{background:#1B2E4B;color:#fff;padding:50px 40px;text-align:center;border-radius:12px;margin-bottom:28px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.cover h1{color:#C9A84C;font-size:26px;margin-bottom:8px;}.gold{height:3px;background:#C9A84C;margin:20px 0;}.disc{background:#FDF8F0;border-left:3px solid #C9A84C;padding:12px 16px;border-radius:6px;font-size:11px;color:#888;margin-top:28px;}.ft{text-align:center;color:#C9A84C;font-size:11px;margin-top:16px;}.print-btn{position:fixed;top:10px;right:10px;background:#1B2E4B;color:#C9A84C;border:none;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:bold;cursor:pointer;}@media print{.print-btn{display:none;}}</style></head><body><button class="print-btn" onclick="window.print()">Yazdır / PDF Kaydet</button><div class="cover"><h1>🏗️ Kentsel Dönüşüm Rehberi</h1><p>Yapay Zeka Destekli Ön Analiz Raporu</p><div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:16px;margin:20px 0;"><p style="color:#C9A84C;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">ANALİZ EDİLEN BELGE</p><p style="font-weight:bold;color:#fff;">${pFName}</p><p style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:6px;">${ds}</p></div></div><div class="gold"></div>${sh}<div class="disc">Bu rapor genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı niteliği taşımaz. Önemli kararlar için lisanslı uzman görüşü alınız.</div><div class="ft">kentseldonusumrehber.com.tr · ${ds}</div></body></html>`;
+  const sh=secs.length>0?secs.map(s=>`
+    <div style="margin-bottom:24px;page-break-inside:avoid;">
+      <div style="font-size:14px;font-weight:bold;color:#1B2E4B;border-bottom:2px solid #C9A84C;padding-bottom:6px;margin-bottom:10px;">${s.label}</div>
+      <div style="font-size:12px;color:#2D2D2D;line-height:1.9;">
+        ${s.lines.map(l=>l.startsWith('•')||l.startsWith('-')?
+          `<div style="display:flex;gap:8px;margin-bottom:5px;"><span style="color:#C9A84C;flex-shrink:0;">•</span><span>${l.replace(/^[•\-]\s*/,'')}</span></div>`:
+          `<p style="margin-bottom:6px;">${l}</p>`
+        ).join('')}
+      </div>
+    </div>`).join(''):
+    `<div style="white-space:pre-wrap;font-size:12px;line-height:1.8;">${pAnswer}</div>`;
+
+  const html=`<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>KDR Analiz Raporu</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;max-width:720px;margin:0 auto;padding:40px 24px;color:#2D2D2D;}
+.cover{background:#1B2E4B;color:#fff;padding:48px 40px;text-align:center;border-radius:12px;margin-bottom:28px;}
+.cover h1{color:#C9A84C;font-size:24px;margin-bottom:8px;}
+.cover p{color:#a0b0c8;font-size:13px;}
+.doc-box{background:rgba(255,255,255,0.08);border-radius:8px;padding:14px 20px;margin:18px 0;}
+.gold{height:3px;background:#C9A84C;margin:20px 0;border-radius:2px;}
+.disc{background:#FDF8F0;border-left:3px solid #C9A84C;padding:12px 16px;border-radius:6px;font-size:11px;color:#888;margin-top:28px;line-height:1.6;}
+.ft{text-align:center;color:#C9A84C;font-size:11px;margin-top:14px;}
+.print-bar{position:fixed;top:0;left:0;right:0;background:#1B2E4B;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999;}
+.print-bar span{color:#C9A84C;font-size:13px;font-weight:bold;}
+.print-btn{background:#C9A84C;color:#1B2E4B;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:bold;cursor:pointer;}
+.spacer{height:50px;}
+@media print{.print-bar,.spacer{display:none;}body{padding:20px;}
+  .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  @page{margin:15mm;}}
+</style>
+</head>
+<body>
+<div class="print-bar">
+  <span>🏗️ Kentsel Dönüşüm Rehberi — Analiz Raporu</span>
+  <button class="print-btn" onclick="window.print()">📄 PDF Olarak Kaydet</button>
+</div>
+<div class="spacer"></div>
+<div class="cover">
+  <h1>🏗️ Kentsel Dönüşüm Rehberi</h1>
+  <p>Yapay Zeka Destekli Ön Analiz Raporu</p>
+  <div class="doc-box">
+    <p style="color:#C9A84C;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">ANALİZ EDİLEN BELGE</p>
+    <p style="font-weight:bold;color:#fff;">${pFName}</p>
+    <p style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:5px;">${ds}</p>
+  </div>
+  <p style="color:rgba(255,255,255,0.35);font-size:10px;margin-top:8px;">Uzman görüşü değildir — Yasal bağlayıcılığı yoktur</p>
+</div>
+<div class="gold"></div>
+${sh}
+<div class="disc">Bu rapor genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı niteliği taşımaz. Önemli kararlar için lisanslı uzman görüşü alınız.</div>
+<div class="ft">kentseldonusumrehber.com.tr · ${ds}</div>
+</body>
+</html>`;
+
   const blob=new Blob([html],{type:'text/html;charset=utf-8'});
   const url=URL.createObjectURL(blob);
-  window.open(url,'_blank');
+  const a=document.createElement('a');
+  a.href=url;
+  a.target='_blank';
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),5000);
+}
 }
   function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
