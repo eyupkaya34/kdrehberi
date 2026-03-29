@@ -351,6 +351,35 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
   </div>
 </div></main>
 </div>
+  <div id="pg-uzmanlar" style="display:none;">
+<main><div class="container" style="padding-top:20px;">
+  <div class="card">
+    <div class="card-title">👤 Uzman Desteği Alın</div>
+    <p class="card-sub">Kentsel dönüşüm sürecinde doğru uzmana yönlenin</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+      <div style="background:#F0F4FA;border-radius:12px;padding:16px;border:1px solid #C5D3E8;">
+        <p style="font-size:13px;font-weight:700;color:#1B2E4B;margin-bottom:4px;">⚖️ Kentsel Dönüşüm Avukatı</p>
+        <p style="font-size:12px;color:#6B7280;line-height:1.6;">Sözleşme inceleme, hak kayıplarının önlenmesi ve müzakere desteği için.</p>
+        <p style="font-size:12px;color:#C9A84C;margin-top:6px;font-weight:600;">Türkiye Barolar Birliği → barobirlik.org.tr</p>
+      </div>
+      <div style="background:#F0FDF4;border-radius:12px;padding:16px;border:1px solid #BBF7D0;">
+        <p style="font-size:13px;font-weight:700;color:#14532D;margin-bottom:4px;">🏗️ İnşaat Mühendisi / Mimar</p>
+        <p style="font-size:12px;color:#6B7280;line-height:1.6;">Teknik şartname kontrolü, yapı kalitesi ve teslim süresi değerlendirmesi için.</p>
+        <p style="font-size:12px;color:#C9A84C;margin-top:6px;font-weight:600;">Mimarlar Odası → mimarlar.org</p>
+      </div>
+      <div style="background:#FDF8F0;border-radius:12px;padding:16px;border:1px solid #E8D5A3;">
+        <p style="font-size:13px;font-weight:700;color:#8B6914;margin-bottom:4px;">💰 Mali Müşavir</p>
+        <p style="font-size:12px;color:#6B7280;line-height:1.6;">Kira yardımı, vergi avantajları ve finansal etkilerin analizi için.</p>
+        <p style="font-size:12px;color:#C9A84C;margin-top:6px;font-weight:600;">TÜRMOB → turmob.org.tr</p>
+      </div>
+    </div>
+    <div style="background:#1B2E4B;border-radius:12px;padding:20px;text-align:center;margin-top:16px;">
+      <p style="color:#C9A84C;font-weight:700;font-size:14px;margin-bottom:6px;">Bu raporu uzmanınıza gösterin</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:12px;line-height:1.6;">Kentsel dönüşüm haklarınızı koruyun. Sözleşmenizi imzalamadan önce profesyonel destek alın.</p>
+    </div>
+  </div>
+</div></main>
+</div>
 </footer>
 
 <script>
@@ -375,7 +404,9 @@ function showPg(p){
 }
 function tFaq(btn){const a=btn.nextElementSibling;const o=a.classList.toggle('open');btn.querySelector('.faq-icon').textContent=o?'−':'+';}
 function setQ(q){document.getElementById('chatInput').value=q;document.getElementById('chatInput').scrollIntoView({behavior:'smooth',block:'center'});}
-function goExpert(){alert('Kentsel dönüşüm için:\n\n⚖️ Hukuki destek: Türkiye Barolar Birliği\n🏗️ Teknik destek: Mimarlar Odası\n💰 Mali destek: Mali Müşavirler Odası\n\nBu raporu uzmanınıza gösterin.');}
+function goExpert(){
+  navTo('uzmanlar');
+}
 
 async function askQ(){
   const q=document.getElementById('chatInput').value.trim();
@@ -577,6 +608,14 @@ function navTo(page){
   document.getElementById('kvkkPg').style.display='none';
   document.getElementById('kulPg').style.display='none';
   document.querySelectorAll('.page-content').forEach(p=>p.classList.remove('active'));
+  if(page==='uzmanlar'){
+  document.getElementById('homePg').style.display='none';
+  document.querySelectorAll('.page-content').forEach(p=>p.classList.remove('active'));
+  document.getElementById('pg-uzmanlar').style.display='block';
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  window.scrollTo(0,0);
+  return;
+}
   if(page==='home'){
     document.getElementById('homePg').style.display='block';
   } else {
