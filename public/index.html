@@ -357,6 +357,7 @@ async function askQ(){
     const data=await res.json();
     const secs=parseAns(data.answer,CKEYS);
     document.getElementById('chatAnswer').innerHTML=secs.length?renderSecs(secs):`<p style="font-size:13px;color:#2D2D2D;line-height:1.7;">${data.answer}</p>`;
+    document.getElementById('chatAnswerCard').style.display='block';
     document.getElementById('chatExpert').style.display='flex';
   }catch(e){document.getElementById('chatAnswer').innerHTML='<p style="font-size:13px;color:#B91C1C;">Bir hata oluştu. Lütfen tekrar deneyin.</p>';}
   document.getElementById('askInner').textContent='Analizi Başlat';btn.disabled=false;
