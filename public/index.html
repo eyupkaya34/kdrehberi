@@ -582,13 +582,14 @@ ${sh}
 </html>`;
 
   const blob=new Blob([html],{type:'text/html;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
-  a.target='_blank';
-  a.click();
-  setTimeout(()=>URL.revokeObjectURL(url),5000);
+const newWin=window.open('','_blank');
+if(!newWin){
+  alert('Lütfen tarayıcınızın açılır pencere engelleyicisini kapatın ve tekrar deneyin.');
+  return;
 }
+newWin.document.open();
+newWin.document.write(html);
+newWin.document.close();
 }
   function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
