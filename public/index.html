@@ -7,33 +7,124 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Arial, sans-serif; background: #f5f5f0; color: #2D2D2D; }
-header { background: #1B2E4B; padding: 20px; text-align: center; }
-header h1 { color: #C9A84C; font-size: 24px; }
-header p { color: #a0b0c8; font-size: 13px; margin-top: 4px; }
-.container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
-.card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 20px; border: 0.5px solid #e0ddd5; }
-h2 { color: #1B2E4B; font-size: 18px; margin-bottom: 16px; }
-textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: Arial; resize: none; }
-button { width: 100%; padding: 13px; background: #1B2E4B; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 12px; }
-button:hover { background: #C9A84C; }
-.gold-btn { background: #C9A84C; color: #1B2E4B; }
-.gold-btn:hover { background: #b8973b; color: white; }
-#chatAnswer, #pdfAnswer { margin-top: 16px; padding: 16px; background: #f8f7f2; border-left: 3px solid #C9A84C; border-radius: 6px; display: none; white-space: pre-wrap; line-height: 1.7; font-size: 14px; }
-.disclaimer { font-size: 11px; color: #999; margin-top: 12px; text-align: center; }
-.loading { color: #C9A84C; font-size: 14px; margin-top: 12px; display: none; }
-input[type="file"] { width: 100%; padding: 12px; border: 2px dashed #1B2E4B; border-radius: 8px; font-size: 14px; cursor: pointer; background: #f8f7f2; }
-.trust { display: flex; gap: 12px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
-.trust span { background: white; padding: 8px 16px; border-radius: 20px; font-size: 12px; border: 1px solid #e0ddd5; }
-footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
+
+/* HEADER */
+header { background: #1B2E4B; padding: 20px; text-align: center; border-bottom: 3px solid #C9A84C; }
+header h1 { color: white; font-size: 22px; }
+header p { color: #C9A84C; font-size: 12px; margin-top: 4px; letter-spacing: 1px; }
+
+/* CONTAINER */
+.container { max-width: 700px; margin: 30px auto; padding: 0 20px; }
+
+/* CARDS */
+.card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 0.5px solid #e0ddd5; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.card h2 { color: #1B2E4B; font-size: 17px; margin-bottom: 16px; border-left: 3px solid #C9A84C; padding-left: 10px; }
+
+/* FORM ELEMENTS */
+textarea, input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: Arial; resize: none; }
+textarea:focus, input:focus { outline: none; border-color: #C9A84C; }
+
+/* BUTTONS */
+.btn { width: 100%; padding: 13px; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 12px; transition: all 0.2s; }
+.btn-navy { background: #1B2E4B; color: white; }
+.btn-navy:hover { background: #243a5e; }
+.btn-gold { background: #C9A84C; color: #1B2E4B; }
+.btn-gold:hover { background: #b8973b; }
+
+/* ANSWER BOXES */
+.answer-box { margin-top: 16px; padding: 16px; background: #fdf8f0; border-left: 3px solid #C9A84C; border-radius: 6px; display: none; white-space: pre-wrap; line-height: 1.8; font-size: 14px; }
+.disclaimer { font-size: 11px; color: #999; margin-top: 10px; text-align: center; }
+.loading { color: #C9A84C; font-size: 13px; margin-top: 10px; display: none; text-align: center; }
+
+/* FILE UPLOAD */
+.file-upload { width: 100%; padding: 16px; border: 2px dashed #1B2E4B; border-radius: 8px; font-size: 14px; cursor: pointer; background: #f8f7f2; text-align: center; color: #1B2E4B; }
+.file-info { font-size: 12px; color: #888; margin-top: 8px; }
+
+/* TRUST BADGES */
+.trust { display: flex; gap: 10px; justify-content: center; margin: 16px 0; flex-wrap: wrap; }
+.trust span { background: white; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #e0ddd5; color: #555; }
+
+/* EXPERT CARD */
+.expert-card { background: #1B2E4B; border-radius: 12px; padding: 24px; margin-bottom: 20px; text-align: center; }
+.expert-card h2 { color: #C9A84C; border-left: none; padding-left: 0; }
+.expert-card p { color: #a0b0c8; font-size: 13px; margin: 10px 0 16px; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid #eee; padding: 14px 0; }
+.faq-q { font-weight: bold; color: #1B2E4B; font-size: 14px; cursor: pointer; }
+.faq-a { color: #666; font-size: 13px; margin-top: 8px; line-height: 1.6; display: none; }
+
+/* FOOTER */
+footer { text-align: center; padding: 24px 20px; color: #999; font-size: 12px; border-top: 1px solid #e0ddd5; margin-top: 20px; }
+footer a { color: #C9A84C; text-decoration: none; }
+
+/* POPUP OVERLAY */
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.popup { background: white; border-radius: 16px; padding: 32px; max-width: 480px; width: 100%; }
+.popup h2 { color: #1B2E4B; font-size: 22px; text-align: center; margin-bottom: 8px; }
+.popup .subtitle { color: #888; font-size: 13px; text-align: center; margin-bottom: 20px; }
+.popup-logo { text-align: center; font-size: 32px; margin-bottom: 12px; }
+.popup-text { color: #555; font-size: 13px; line-height: 1.7; margin-bottom: 20px; background: #f8f7f2; padding: 14px; border-radius: 8px; border-left: 3px solid #C9A84C; }
+.checkbox-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+.checkbox-row input { margin-top: 3px; width: 16px; height: 16px; cursor: pointer; accent-color: #C9A84C; }
+.checkbox-row label { font-size: 13px; color: #444; line-height: 1.5; cursor: pointer; }
+.checkbox-row a { color: #C9A84C; }
+.popup-btn { width: 100%; padding: 14px; background: #888; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: not-allowed; margin-top: 8px; transition: all 0.3s; }
+.popup-btn.active { background: #1B2E4B; cursor: pointer; }
+.popup-btn.active:hover { background: #C9A84C; color: #1B2E4B; }
+.popup-disclaimer { font-size: 11px; color: #aaa; text-align: center; margin-top: 12px; }
+
+/* LEGAL PAGES */
+.legal-page { display: none; }
+.legal-page.active { display: block; }
+.legal-content { background: white; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+.legal-content h1 { color: #1B2E4B; font-size: 20px; margin-bottom: 20px; border-bottom: 2px solid #C9A84C; padding-bottom: 10px; }
+.legal-content h3 { color: #1B2E4B; font-size: 15px; margin: 20px 0 8px; }
+.legal-content p { color: #555; font-size: 14px; line-height: 1.8; margin-bottom: 10px; }
+.back-btn { background: none; border: 1px solid #C9A84C; color: #C9A84C; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; margin-bottom: 16px; }
+
+/* PROGRESS BAR */
+.progress-bar { width: 100%; height: 6px; background: #eee; border-radius: 3px; margin-top: 12px; display: none; }
+.progress-fill { height: 100%; background: #C9A84C; border-radius: 3px; transition: width 0.5s; width: 0%; }
+
+/* HELP BUTTON */
+.help-btn { position: fixed; bottom: 20px; right: 20px; background: #C9A84C; color: #1B2E4B; width: 44px; height: 44px; border-radius: 50%; border: none; font-size: 18px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 999; }
 </style>
 </head>
 <body>
 
+<!-- WELCOME POPUP -->
+<div class="overlay" id="welcomePopup">
+  <div class="popup">
+    <div class="popup-logo">🏗️</div>
+    <h2>Hoş Geldiniz</h2>
+    <p class="subtitle">Kentsel Dönüşüm Rehberi</p>
+    <div class="popup-text">
+      Bu platform, kentsel dönüşüm süreçleri hakkında <strong>genel bilgilendirme</strong> amaçlıdır. Kesin hukuki veya mühendislik kararı vermez. Yüklediğiniz belgeler analiz sonrası otomatik olarak silinir.
+    </div>
+    <div class="checkbox-row">
+      <input type="checkbox" id="check1" onchange="checkPopup()">
+      <label for="check1"><a href="#" onclick="showLegal('kvkk')">Kullanım Koşullarını</a> okudum ve kabul ediyorum.</label>
+    </div>
+    <div class="checkbox-row">
+      <input type="checkbox" id="check2" onchange="checkPopup()">
+      <label for="check2"><a href="#" onclick="showLegal('kullanim')">KVKK Aydınlatma Metni'ni</a> okudum, kişisel verilerimin işlenmesini kabul ediyorum.</label>
+    </div>
+    <button class="popup-btn" id="acceptBtn" onclick="acceptTerms()">Kabul Ediyorum ve Devam Et →</button>
+    <p class="popup-disclaimer">Bu platform kesin hukuki karar vermez. Verileriniz güvendedir.</p>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp" style="display:none;">
+
 <header>
   <h1>🏗️ Kentsel Dönüşüm Rehberi</h1>
-  <p>Yapay Zeka Destekli Rehberlik | kentseldonusumrehber.com.tr</p>
+  <p>YAPAY ZEKA DESTEKLİ REHBERLİK | kentseldonusumrehber.com.tr</p>
 </header>
 
+<!-- MAIN PAGE -->
+<div id="mainPage">
 <div class="container">
 
   <div class="trust">
@@ -43,51 +134,183 @@ footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
     <span>1.000+ Belge Analiz Edildi</span>
   </div>
 
-  <!-- Chat Section -->
+  <!-- CHAT -->
   <div class="card">
     <h2>💬 Sorunuzu Sorun</h2>
-    <textarea id="chatInput" rows="3" placeholder="Örnek: Binam 40 yıllık. Risk altında mıyım?"></textarea>
-    <button onclick="askQuestion()">Soruyu Sor →</button>
-    <div class="loading" id="chatLoading">Yanıt hazırlanıyor...</div>
-    <div id="chatAnswer"></div>
+    <textarea id="chatInput" rows="3" placeholder="Örnek: Binam 40 yıllık. Risk altında mıyım? Kiracı olarak haklarım neler?"></textarea>
+    <button class="btn btn-navy" onclick="askQuestion()">Soruyu Sor →</button>
+    <div class="loading" id="chatLoading">⏳ Yanıt hazırlanıyor...</div>
+    <div class="answer-box" id="chatAnswer"></div>
     <p class="disclaimer">⚠️ Bu bilgiler genel rehberlik amaçlıdır. Hukuki karar değildir.</p>
   </div>
 
-  <!-- PDF Section -->
+  <!-- PDF ANALYSIS -->
   <div class="card">
     <h2>📄 Belge Analizi</h2>
-    <input type="file" id="pdfFile" accept=".pdf" onchange="handleFile(this)">
-    <div id="fileInfo" style="font-size:12px;color:#999;margin-top:8px;"></div>
-    <button class="gold-btn" onclick="analyzePDF()" id="analyzeBtn" style="display:none;">Belgeyi Analiz Et →</button>
-    <div class="loading" id="pdfLoading">PDF analiz ediliyor... Lütfen bekleyin.</div>
-    <div id="pdfAnswer"></div>
-    <p class="disclaimer">⚠️ Yüklenen belgeler analiz sonrası otomatik silinir. Hukuki karar değildir.</p>
+    <label class="file-upload" for="pdfFile">
+      📎 PDF dosyanızı seçin veya buraya sürükleyin<br>
+      <small style="color:#888;">Maksimum 30 sayfa · 10MB</small>
+    </label>
+    <input type="file" id="pdfFile" accept=".pdf" style="display:none;" onchange="handleFile(this)">
+    <div class="file-info" id="fileInfo"></div>
+    <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+    <button class="btn btn-gold" id="analyzeBtn" style="display:none;" onclick="analyzePDF()">📥 Belgeyi Analiz Et →</button>
+    <div class="loading" id="pdfLoading"></div>
+    <div class="answer-box" id="pdfAnswer"></div>
+    <button class="btn btn-navy" id="downloadBtn" style="display:none;margin-top:12px;" onclick="downloadReport()">📥 Raporu İndir — 49,99 TL</button>
+    <p class="disclaimer">⚠️ Belgeler analiz sonrası otomatik silinir. Hukuki karar değildir.</p>
   </div>
 
-  <!-- Expert Section -->
-  <div class="card" style="text-align:center; background:#1B2E4B;">
-    <h2 style="color:#C9A84C;">👤 Uzmanla Görüş</h2>
-    <p style="color:#a0b0c8; margin-bottom:16px; font-size:14px;">Durumunuz için doğru uzmanı bulun</p>
-    <button onclick="findExpert()" style="background:#C9A84C; color:#1B2E4B;">Uzman Bul →</button>
+  <!-- EXPERT -->
+  <div class="expert-card">
+    <h2>👤 Uzmanla Görüş</h2>
+    <p>Durumunuz için doğru uzmanı bulun</p>
+    <button class="btn btn-gold" onclick="findExpert()">Uzman Bul →</button>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card">
+    <h2>❓ Sık Sorulan Sorular</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Bu uygulama hukuki tavsiye veriyor mu?</div>
+      <div class="faq-a">Hayır. Platform yalnızca genel bilgilendirme amaçlıdır. Uzman görüşü değildir ve yasal bağlayıcılığı yoktur.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Yüklediğim belgeler saklanıyor mu?</div>
+      <div class="faq-a">Hayır. Belgeler analiz sonrası otomatik olarak silinir. Hiçbir belge sunucularımızda saklanmaz.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Hangi belgeler analiz edilebilir?</div>
+      <div class="faq-a">Sözleşmeler, teknik şartnameler, raporlar ve resmi yazışmalar analiz edilebilir. Maksimum 30 sayfa ve 10MB.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Raporu kim görebilir?</div>
+      <div class="faq-a">Yalnızca siz. Raporlar yalnızca sizin cihazınızda oluşturulur ve paylaşılmaz.</div>
+    </div>
   </div>
 
 </div>
+</div>
+
+<!-- KVKK PAGE -->
+<div id="kvkkPage" class="legal-page">
+<div class="container">
+  <div class="legal-content">
+    <button class="back-btn" onclick="showMain()">← Geri Dön</button>
+    <h1>KVKK Aydınlatma Metni</h1>
+    <h3>1. Veri Sorumlusu</h3>
+    <p>kentseldonusumrehber.com.tr platformu veri sorumlusudur.</p>
+    <h3>2. Hangi Veriler İşlenir</h3>
+    <p>Yüklenen belgeler, sorulan sorular ve IP adresi geçici olarak işlenir.</p>
+    <h3>3. Verilerin Kullanım Amacı</h3>
+    <p>Veriler yalnızca yapay zeka analizi için kullanılır. Üçüncü şahıslarla paylaşılmaz.</p>
+    <h3>4. Verilerin Saklanması</h3>
+    <p>Yüklenen belgeler analiz sonrası otomatik olarak silinir. Hiçbir belge kalıcı olarak saklanmaz.</p>
+    <h3>5. Kullanıcı Hakları</h3>
+    <p>KVKK madde 11 kapsamında kişisel verilerinize erişim, düzeltme ve silme hakkına sahipsiniz.</p>
+    <h3>6. Çerezler</h3>
+    <p>Platform yalnızca temel işlevsellik için zorunlu çerezler kullanır.</p>
+    <h3>7. İletişim</h3>
+    <p>kentseldonusumrehber.com.tr</p>
+  </div>
+</div>
+</div>
+
+<!-- KULLANIM KOŞULLARI PAGE -->
+<div id="kullanımPage" class="legal-page">
+<div class="container">
+  <div class="legal-content">
+    <button class="back-btn" onclick="showMain()">← Geri Dön</button>
+    <h1>Kullanım Koşulları</h1>
+    <h3>1. Hizmetin Amacı</h3>
+    <p>Bu platform yalnızca genel bilgilendirme amaçlıdır. Kesin hukuki, mühendislik veya yapısal karar vermez.</p>
+    <h3>2. Sorumluluk Reddi</h3>
+    <p>Platformdaki bilgiler profesyonel danışmanlık yerine geçmez. Kullanıcı, kararlarından kendisi sorumludur.</p>
+    <h3>3. Uzman Yönlendirmesi</h3>
+    <p>Ciddi durumlarda mutlaka lisanslı mimar, mühendis veya avukana başvurunuz.</p>
+    <h3>4. Hizmet Kullanımı</h3>
+    <p>Bu platformu yalnızca yasal amaçlarla kullanabilirsiniz.</p>
+    <h3>5. Değişiklik Hakkı</h3>
+    <p>Platform içeriği önceden haber verilmeksizin değiştirilebilir.</p>
+    <h3>6. İletişim</h3>
+    <p>kentseldonusumrehber.com.tr</p>
+  </div>
+</div>
+</div>
 
 <footer>
-  <p>kentseldonusumrehber.com.tr — Bu platform genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı vermez.</p>
+  <p>
+    <a href="#" onclick="showLegal('kullanim')">Kullanım Koşulları</a> · 
+    <a href="#" onclick="showLegal('kvkk')">KVKK</a> · 
+    kentseldonusumrehber.com.tr
+  </p>
+  <p style="margin-top:8px;">Bu platform genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı vermez.</p>
 </footer>
 
-<script>
-let extractedText = '';
-let pageCount = 0;
+</div><!-- end mainApp -->
 
-async function askQuestion() {
+<button class="help-btn" onclick="showInfo()" title="Bilgi">?</button>
+
+<script type="module">
+// Check if already accepted
+window.addEventListener('load', () => {
+  if (localStorage.getItem('termsAccepted')) {
+    document.getElementById('welcomePopup').style.display = 'none';
+    document.getElementById('mainApp').style.display = 'block';
+  }
+});
+
+window.checkPopup = function() {
+  const c1 = document.getElementById('check1').checked;
+  const c2 = document.getElementById('check2').checked;
+  const btn = document.getElementById('acceptBtn');
+  if (c1 && c2) {
+    btn.classList.add('active');
+  } else {
+    btn.classList.remove('active');
+  }
+};
+
+window.acceptTerms = function() {
+  const c1 = document.getElementById('check1').checked;
+  const c2 = document.getElementById('check2').checked;
+  if (!c1 || !c2) return;
+  localStorage.setItem('termsAccepted', 'true');
+  document.getElementById('welcomePopup').style.display = 'none';
+  document.getElementById('mainApp').style.display = 'block';
+};
+
+window.showLegal = function(page) {
+  document.getElementById('welcomePopup').style.display = 'none';
+  document.getElementById('mainApp').style.display = 'block';
+  document.getElementById('mainPage').style.display = 'none';
+  document.getElementById('kvkkPage').style.display = 'none';
+  document.getElementById('kullanımPage').style.display = 'none';
+  if (page === 'kvkk') document.getElementById('kvkkPage').style.display = 'block';
+  if (page === 'kullanim') document.getElementById('kullanımPage').style.display = 'block';
+  window.scrollTo(0,0);
+};
+
+window.showMain = function() {
+  document.getElementById('mainPage').style.display = 'block';
+  document.getElementById('kvkkPage').style.display = 'none';
+  document.getElementById('kullanımPage').style.display = 'none';
+};
+
+window.showInfo = function() {
+  alert('Kentsel Dönüşüm Rehberi\n\nBu platform yapay zeka destekli genel bilgilendirme sunar.\nKesin hukuki karar vermez.\n\nkentseldonusumrehber.com.tr');
+};
+
+window.toggleFaq = function(el) {
+  const answer = el.nextElementSibling;
+  answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+};
+
+window.askQuestion = async function() {
   const question = document.getElementById('chatInput').value.trim();
   if (!question || question.length < 5) return alert('Lütfen bir soru yazın.');
-  
   document.getElementById('chatLoading').style.display = 'block';
   document.getElementById('chatAnswer').style.display = 'none';
-  
   try {
     const res = await fetch('/api/chat', {
       method: 'POST',
@@ -102,29 +325,32 @@ async function askQuestion() {
     document.getElementById('chatAnswer').style.display = 'block';
   }
   document.getElementById('chatLoading').style.display = 'none';
-}
+};
 
-async function handleFile(input) {
+let extractedText = '';
+let analysisResult = '';
+let currentFilename = '';
+
+window.handleFile = async function(input) {
   const file = input.files[0];
   if (!file) return;
-  
-  if (file.size > 10 * 1024 * 1024) {
-    alert('Dosya 10MB sınırını aşıyor. Lütfen daha küçük bir dosya yükleyin.');
-    return;
-  }
-
+  if (file.size > 10 * 1024 * 1024) return alert('Dosya 10MB sınırını aşıyor.');
+  currentFilename = file.name;
   document.getElementById('fileInfo').textContent = 'Belge okunuyor...';
-  
-  const pdfjsLib = await import('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-  
+  document.getElementById('progressBar').style.display = 'block';
+  document.getElementById('progressFill').style.width = '20%';
+
+  const { getDocument, GlobalWorkerOptions } = await import('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+  GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-  pageCount = pdf.numPages;
-  
+  const pdf = await getDocument({ data: arrayBuffer }).promise;
+  const pageCount = pdf.numPages;
+
   if (pageCount > 30) {
-    alert('Belgeniz 30 sayfadan fazla. Lütfen en fazla 30 sayfalık bölümler halinde yükleyin.');
-    return;
+    document.getElementById('fileInfo').textContent = '';
+    document.getElementById('progressBar').style.display = 'none';
+    return alert('Belgeniz 30 sayfadan fazla. Lütfen daha kısa bölümler halinde yükleyin.');
   }
 
   let fullText = '';
@@ -132,22 +358,27 @@ async function handleFile(input) {
     const page = await pdf.getPage(i);
     const content = await page.getTextContent();
     fullText += content.items.map(item => item.str).join(' ') + '\n';
+    document.getElementById('progressFill').style.width = (20 + (i/pageCount)*40) + '%';
   }
-  
+
   extractedText = fullText;
   document.getElementById('fileInfo').textContent = `${file.name} · ${pageCount} sayfa`;
+  document.getElementById('progressFill').style.width = '60%';
   document.getElementById('analyzeBtn').style.display = 'block';
-}
+  document.getElementById('downloadBtn').style.display = 'none';
+};
 
-async function analyzePDF() {
+window.analyzePDF = async function() {
   if (!extractedText) return alert('Lütfen önce bir PDF yükleyin.');
-  
   document.getElementById('pdfLoading').style.display = 'block';
+  document.getElementById('pdfLoading').textContent = '🤖 Yapay zeka belgenizi analiz ediyor... Lütfen bekleyin.';
   document.getElementById('pdfAnswer').style.display = 'none';
   document.getElementById('analyzeBtn').style.display = 'none';
-  
+  document.getElementById('downloadBtn').style.display = 'none';
+  document.getElementById('progressFill').style.width = '70%';
+
   let fullAnswer = '';
-  
+
   try {
     const res = await fetch('/api/analyze-pdf', {
       method: 'POST',
@@ -157,17 +388,15 @@ async function analyzePDF() {
 
     const reader = res.body.getReader();
     const decoder = new TextDecoder();
-    
     document.getElementById('pdfAnswer').style.display = 'block';
     document.getElementById('pdfLoading').style.display = 'none';
+    document.getElementById('progressFill').style.width = '90%';
 
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      
       const chunk = decoder.decode(value);
       const lines = chunk.split('\n');
-      
       for (const line of lines) {
         if (line.startsWith('data: ') && line !== 'data: [DONE]') {
           try {
@@ -180,19 +409,59 @@ async function analyzePDF() {
         }
       }
     }
+
+    analysisResult = fullAnswer;
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('analyzeBtn').style.display = 'block';
+    document.getElementById('downloadBtn').style.display = 'block';
+
   } catch (e) {
-    document.getElementById('pdfAnswer').textContent = 'Analiz sırasında bir hata oluştu.';
+    document.getElementById('pdfAnswer').textContent = 'Analiz sırasında bir hata oluştu. Lütfen tekrar deneyin.';
     document.getElementById('pdfAnswer').style.display = 'block';
     document.getElementById('pdfLoading').style.display = 'none';
+    document.getElementById('analyzeBtn').style.display = 'block';
   }
-  
-  document.getElementById('analyzeBtn').style.display = 'block';
-}
+};
 
-function findExpert() {
-  alert('Kentsel dönüşüm için:\n\n• Hukuki destek: Türkiye Barolar Birliği\n• Teknik destek: Mimarlar Odası\n• Mali destek: Mali Müşavirler Odası\n\nBu raporu uzmanınıza gösterin.');
-}
+window.downloadReport = function() {
+  if (!analysisResult) return alert('Önce analiz yapın.');
+  const now = new Date().toLocaleDateString('tr-TR');
+  const win = window.open('', '_blank');
+  win.document.write(`<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8">
+  <title>KDR Analiz Raporu</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; color: #2D2D2D; }
+    .cover { background: #1B2E4B; color: white; padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 30px; }
+    .cover h1 { color: #C9A84C; font-size: 28px; margin-bottom: 10px; }
+    .cover p { color: #a0b0c8; font-size: 14px; }
+    .cover .doc-name { background: rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 8px; margin: 20px 0; font-size: 14px; }
+    .gold-line { height: 3px; background: #C9A84C; margin: 20px 0; }
+    .content { white-space: pre-wrap; line-height: 1.8; font-size: 14px; }
+    .disclaimer { background: #fdf8f0; border-left: 3px solid #C9A84C; padding: 14px; border-radius: 6px; font-size: 12px; color: #888; margin-top: 30px; }
+    .footer { text-align: center; color: #C9A84C; font-size: 12px; margin-top: 20px; }
+    @media print { body { padding: 20px; } }
+  </style></head><body>
+  <div class="cover">
+    <h1>🏗️ Kentsel Dönüşüm Rehberi</h1>
+    <p>Yapay Zeka Destekli Ön Analiz Raporu</p>
+    <div class="doc-name">📄 ${currentFilename}</div>
+    <p>Analiz Tarihi: ${now}</p>
+  </div>
+  <div class="gold-line"></div>
+  <div class="content">${analysisResult}</div>
+  <div class="disclaimer">
+    Bu rapor genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı niteliği taşımaz. 
+    Önemli kararlar için lisanslı uzman görüşü alınız.
+  </div>
+  <div class="footer">kentseldonusumrehber.com.tr · ${now}</div>
+  <script>window.onload = () => window.print();<\/script>
+  </body></html>`);
+  win.document.close();
+};
+
+window.findExpert = function() {
+  alert('Kentsel dönüşüm için:\n\n⚖️ Hukuki destek: Türkiye Barolar Birliği\n🏗️ Teknik destek: Mimarlar Odası\n💰 Mali destek: Mali Müşavirler Odası\n\nBu raporu uzmanınıza gösterin.');
+};
 </script>
-
 </body>
 </html>
