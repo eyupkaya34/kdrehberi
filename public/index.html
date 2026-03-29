@@ -184,12 +184,15 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
 
 <div class="overlay" id="welcomePopup">
   <div class="popup">
-    <div class="popup-logo">🏗️</div>
+    <div class="popup-logo">function chkPop(){
+  const ok=document.getElementById('c1').checked&&document.getElementById('c2').checked;
+  document.getElementById('acceptBtn').classList.toggle('active',ok);
+}
     <h2>Hoş Geldiniz</h2>
     <p class="popup-sub">Kentsel Dönüşüm Rehberi</p>
     <div class="popup-box">Bu platform, kentsel dönüşüm süreçleri hakkında <strong>genel bilgilendirme</strong> amaçlıdır. Kesin hukuki veya mühendislik kararı vermez. Yüklediğiniz belgeler analiz sonrası otomatik olarak silinir.</div>
-    <div class="check-row"><input type="checkbox" id="c1" onchange="chkPop()"><label for="c1"><a href="#" onclick="showPg('kullanim');return false;">Kullanım Koşullarını</a> okudum ve kabul ediyorum.</label></div>
-    <div class="check-row"><input type="checkbox" id="c2" onchange="chkPop()"><label for="c2"><a href="#" onclick="showPg('kvkk');return false;">KVKK Aydınlatma Metni'ni</a> okudum, kişisel verilerimin işlenmesini kabul ediyorum.</label></div>
+    <div class="check-row"><input type="checkbox" id="c1" onchange="chkPop()"><label for="c1"><a href="#" onclick="popupLegal('kullanim');return false;">Kullanım Koşullarını</a> okudum ve kabul ediyorum.</label></div>
+    <div class="check-row"><input type="checkbox" id="c2" onchange="chkPop()"><label for="c2"><a href="#" onclick="popupLegal('kvkk');return false;">KVKK Aydınlatma Metni'ni</a> okudum, kişisel verilerimin işlenmesini kabul ediyorum.</label></div>
     <button class="popup-btn" id="acceptBtn" onclick="acceptTerms()">Kabul Ediyorum ve Devam Et →</button>
     <p class="popup-disc">Bu platform kesin hukuki karar vermez. Verileriniz güvendedir.</p>
   </div>
