@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
@@ -13,21 +12,14 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Chat endpoint
 app.post('/api/chat', async (req, res) => {
   try {
     const { question } = req.body;
-    if (!question || question.length < 10) {
-      return res.json({ answer: 'Lütfen daha detaylı bir soru yazın.' });
-    }
+    if (!question || question.length < 5) return res.json({ answer: 'Lütfen daha detaylı bir soru yazın.' });
     const message = await client.messages.create({
       model: 'claude-haiku-4-5',
       max_tokens: 800,
-      system: `Sen kentsel dönüşüm konusunda yardımcı bir rehbersin. 
-      Soruları sade ve anlaşılır Türkçe ile yanıtla. 
-      Maksimum 3-4 cümle kullan. 
-      Kesin hukuki karar verme. 
-      Gerekirse uzman görüşü öner.`,
+      system: `Sen kentsel dönüşüm konusunda yardımcı bir rehbersin. Soruları sade ve anlaşılır Türkçe ile yanıtla. Maksimum 4-5 cümle kullan. Kesin hukuki karar verme. Gerekirse uzman görüşü öner. Yanıtında kesinlikle markdown kullanma — yıldız, diyez, tire gibi semboller kullanma.`,
       messages: [{ role: 'user', content: question }]
     });
     res.json({ answer: message.content[0].text });
@@ -37,10 +29,9 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// PDF analysis endpoint
 app.post('/api/analyze-pdf', async (req, res) => {
   try {
-    const { text, filename } = req.body;
+    const { text } = req.body;
     if (!text) return res.status(400).json({ error: 'Metin bulunamadı.' });
 
     res.setHeader('Content-Type', 'text/event-stream');
@@ -54,6 +45,13 @@ app.post('/api/analyze-pdf', async (req, res) => {
 Yüklenen belgeyi analiz et ve sonuçları aşağıdaki başlıklar altında sade, anlaşılır Türkçe ile yaz.
 Kesin hukuki veya mühendislik kararı verme. Gerektiğinde uzman görüşü alınmasını tavsiye et.
 
+ÖNEMLİ FORMAT KURALLARI:
+- Kesinlikle markdown kullanma
+- Yıldız (*), diyez (#), tire (-) gibi semboller kullanma
+- Madde işareti olarak sadece • kullan
+- Tablolar kullanma
+- Düz metin yaz
+
 Güven Seviyesini hesaplarken şu kriterleri kullan:
 - Tüm ekler mevcut ve eksiksiz ise +20 puan
 - Cezai şartlar dengeli ise +20 puan
@@ -61,13 +59,28 @@ Güven Seviyesini hesaplarken şu kriterleri kullan:
 - Tarafların bilgileri tam ise +20 puan
 - Hukuki riskler düşük ise +20 puan
 
-Her zaman şu formatta yanıtla:
+MUTLAKA şu formatta yanıtla:
 🔹 Kısa Özet
+[buraya yaz]
+
 🔹 Dikkat Edilmesi Gereken Noktalar
+- ...
+- ...
+
 🔹 Olası Riskler
+- ...
+- ...
+
 🔹 Eksik Bilgiler
+- ...
+- ...
+
 🔹 Önerilen Sonraki Adımlar
-🔹 Güven Seviyesi %[0-100]`,
+- ...
+- ...
+
+🔹 Güven Seviyesi
+%[0-100]`,
       messages: [{ role: 'user', content: `Şu belgeyi analiz et:\n\n${text.substring(0, 80000)}` }]
     });
 
@@ -84,6 +97,10 @@ Her zaman şu formatta yanıtla:
     res.write(`data: ${JSON.stringify({ error: 'Analiz hatası oluştu.' })}\n\n`);
     res.end();
   }
+});
+
+app.post('/api/payment/create-payment', async (req, res) => {
+  res.json({ testMode: true });
 });
 
 app.get('*', (req, res) => {
