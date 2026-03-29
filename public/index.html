@@ -154,6 +154,30 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
 .footer-links{display:flex;justify-content:center;gap:16px;margin-bottom:8px;}
 .footer-links a{font-size:13px;color:#C9A84C;text-decoration:none;}
 .footer-disc{font-size:11px;color:#9CA3AF;line-height:1.6;}
+  .hamburger{position:fixed;top:14px;right:16px;z-index:500;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:#C9A84C;border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.sidebar{position:fixed;top:0;right:-280px;width:260px;height:100vh;background:#1B2E4B;z-index:400;transition:right 0.3s ease;box-shadow:-4px 0 20px rgba(0,0,0,0.3);display:flex;flex-direction:column;padding-top:70px;}
+.sidebar.open{right:0;}
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;display:none;backdrop-filter:blur(2px);}
+.sidebar-overlay.open{display:block;}
+.sidebar-logo{padding:0 20px 24px;border-bottom:1px solid rgba(201,168,76,0.2);margin-bottom:12px;}
+.sidebar-logo p{color:#C9A84C;font-size:11px;letter-spacing:1px;margin-top:2px;}
+.sidebar-logo strong{color:#fff;font-size:15px;}
+.nav-item{display:flex;align-items:center;gap:12px;padding:14px 20px;color:#a0b0c8;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;border:none;background:none;width:100%;text-align:left;}
+.nav-item:hover{background:rgba(201,168,76,0.1);color:#C9A84C;}
+.nav-item.active{background:rgba(201,168,76,0.15);color:#C9A84C;border-left:3px solid #C9A84C;}
+.nav-icon{font-size:18px;width:24px;text-align:center;}
+.sidebar-footer{margin-top:auto;padding:16px 20px;border-top:1px solid rgba(201,168,76,0.2);}
+.sidebar-footer p{color:rgba(255,255,255,0.3);font-size:11px;}
+.page-content{display:none;}
+.page-content.active{display:block;}
+.coming-soon{text-align:center;padding:60px 20px;color:#6B7280;}
+.coming-soon .cs-icon{font-size:48px;margin-bottom:16px;}
+.coming-soon h2{font-size:18px;font-weight:700;color:#1B2E4B;margin-bottom:8px;}
+.coming-soon p{font-size:14px;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -172,6 +196,22 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
 </div>
 
 <div id="mainApp" style="display:none;flex:1;flex-direction:column;">
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <strong>🏗️ KDR</strong>
+    <p>KENTSEL DÖNÜŞÜM REHBERİ</p>
+  </div>
+  <button class="nav-item active" id="nav-home" onclick="navTo('home')"><span class="nav-icon">🏠</span>Ana Sayfa</button>
+  <button class="nav-item" id="nav-analizlerim" onclick="navTo('analizlerim')"><span class="nav-icon">📋</span>Analizlerim</button>
+  <button class="nav-item" id="nav-bildirimler" onclick="navTo('bildirimler')"><span class="nav-icon">🔔</span>Bildirimler</button>
+  <button class="nav-item" id="nav-ayarlar" onclick="navTo('ayarlar')"><span class="nav-icon">⚙️</span>Ayarlar ve Gizlilik</button>
+  <button class="nav-item" id="nav-yardim" onclick="navTo('yardim')"><span class="nav-icon">❓</span>Yardım</button>
+  <div class="sidebar-footer"><p>kentseldonusumrehber.com.tr<br>© 2026 Tüm hakları saklıdır.</p></div>
+</div>
+<button class="hamburger" id="hamburger" onclick="toggleSidebar()">
+  <span></span><span></span><span></span>
+</button>
 <header>
   <div class="header-inner">
     <div style="display:flex;align-items:center;gap:12px;">
@@ -340,6 +380,67 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
 <footer>
   <div class="footer-links"><a href="#" onclick="showPg('kullanim');return false;">Kullanım Koşulları</a><a href="#" onclick="showPg('kvkk');return false;">KVKK</a></div>
   <p class="footer-disc">kentseldonusumrehber.com.tr — Bu platform genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı vermez.<br>© 2026 Kentsel Dönüşüm Rehberi. Tüm hakları saklıdır.</p>
+  <!-- ANALİZLERİM -->
+<div class="page-content" id="pg-analizlerim">
+<main><div class="container">
+  <div class="coming-soon">
+    <div class="cs-icon">📋</div>
+    <h2>Analizlerim</h2>
+    <p>Daha önce yaptığınız PDF analizleri burada görünecek.<br>Bu özellik yakında aktif olacak.</p>
+  </div>
+</div></main>
+</div>
+
+<!-- BİLDİRİMLER -->
+<div class="page-content" id="pg-bildirimler">
+<main><div class="container">
+  <div class="coming-soon">
+    <div class="cs-icon">🔔</div>
+    <h2>Bildirimler</h2>
+    <p>Analiz sonuçları ve sistem bildirimleri burada görünecek.<br>Bu özellik yakında aktif olacak.</p>
+  </div>
+</div></main>
+</div>
+
+<!-- AYARLAR -->
+<div class="page-content" id="pg-ayarlar">
+<main><div class="container">
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title">⚙️ Ayarlar ve Gizlilik</div>
+    <p class="card-sub">Hesap ve gizlilik tercihlerinizi yönetin</p>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;">
+        <div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">Çerez Tercihleri</p><p style="font-size:12px;color:#6B7280;">Yalnızca zorunlu çerezler kullanılır</p></div>
+        <span style="font-size:12px;color:#C9A84C;font-weight:600;">Aktif</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;">
+        <div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">Veri Saklama</p><p style="font-size:12px;color:#6B7280;">Belgeler analiz sonrası otomatik silinir</p></div>
+        <span style="font-size:12px;color:#C9A84C;font-weight:600;">Aktif</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;">
+        <div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">KVKK Onayı</p><p style="font-size:12px;color:#6B7280;">İlk girişte onaylandı</p></div>
+        <button onclick="localStorage.removeItem('tok');location.reload();" style="font-size:12px;color:#EF4444;background:none;border:none;cursor:pointer;text-decoration:underline;">Sıfırla</button>
+      </div>
+    </div>
+  </div>
+</div></main>
+</div>
+
+<!-- YARDIM -->
+<div class="page-content" id="pg-yardim">
+<main><div class="container">
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title">❓ Yardım Merkezi</div>
+    <p class="card-sub">Sık sorulan sorular ve destek</p>
+    <div class="faq-list" style="margin-top:16px;">
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Bu platform nasıl çalışır?</span><span class="faq-icon">+</span></button><div class="faq-a">Sorunuzu yazın veya PDF belgenizi yükleyin. Yapay zeka saniyeler içinde Türkçe analiz sunar. Sonuçlar genel bilgilendirme amaçlıdır.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Hangi belgeler destekleniyor?</span><span class="faq-icon">+</span></button><div class="faq-a">Sözleşmeler, teknik şartnameler, raporlar ve resmi yazışmalar. Maksimum 30 sayfa ve 10MB PDF formatı.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Raporu nasıl indirebilirim?</span><span class="faq-icon">+</span></button><div class="faq-a">PDF analizi tamamlandıktan sonra "Raporu İndir — 49,99 TL" butonuna tıklayın. Ödeme sonrası rapor otomatik indirilir.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">İletişim</span><span class="faq-icon">+</span></button><div class="faq-a">kentseldonusumrehber.com.tr adresinden bize ulaşabilirsiniz.</div></div>
+    </div>
+  </div>
+</div></main>
+</div>
 </footer>
 
 <script>
@@ -481,6 +582,31 @@ function dlReport(){
   const win=window.open('','_blank');
   win.document.write(`<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>KDR Analiz Raporu</title><style>body{font-family:Arial,sans-serif;max-width:700px;margin:0 auto;padding:40px 20px;}.cover{background:#1B2E4B;color:#fff;padding:50px 40px;text-align:center;border-radius:12px;margin-bottom:28px;}.cover h1{color:#C9A84C;font-size:26px;margin-bottom:8px;}.cover p{color:#a0b0c8;font-size:13px;}.gold{height:3px;background:#C9A84C;margin:20px 0;}.disc{background:#FDF8F0;border-left:3px solid #C9A84C;padding:12px 16px;border-radius:6px;font-size:11px;color:#888;margin-top:28px;}.ft{text-align:center;color:#C9A84C;font-size:11px;margin-top:16px;}@media print{body{padding:20px;}}</style></head><body><div class="cover"><h1>🏗️ Kentsel Dönüşüm Rehberi</h1><p>Yapay Zeka Destekli Ön Analiz Raporu</p><div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:16px;margin:20px 0;"><p style="color:#C9A84C;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">ANALİZ EDİLEN BELGE</p><p style="font-weight:bold;">${pFName}</p><p style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:6px;">${ds}</p></div><p style="color:rgba(255,255,255,0.35);font-size:10px;">Uzman görüşü değildir — Yasal bağlayıcılığı yoktur</p></div><div class="gold"></div>${sh}<div class="disc">Bu rapor genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı niteliği taşımaz.</div><div class="ft">kentseldonusumrehber.com.tr · ${ds}</div><script>window.onload=()=>setTimeout(()=>window.print(),500);<\/script></body></html>`);
   win.document.close();
+}
+  function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+}
+function navTo(page){
+  closeSidebar();
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('nav-'+page).classList.add('active');
+  document.getElementById('homePg').style.display='none';
+  document.getElementById('kvkkPg').style.display='none';
+  document.getElementById('kulPg').style.display='none';
+  document.querySelectorAll('.page-content').forEach(p=>p.classList.remove('active'));
+  if(page==='home'){
+    document.getElementById('homePg').style.display='block';
+  } else {
+    document.getElementById('pg-'+page).classList.add('active');
+  }
+  window.scrollTo(0,0);
 }
 </script>
 </body>
