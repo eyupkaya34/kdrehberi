@@ -184,6 +184,11 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
 
 <div class="overlay" id="welcomePopup">
   <div class="popup">
+    function popupLegal(p){
+  document.getElementById('welcomePopup').style.display='none';
+  document.getElementById('mainApp').style.display='flex';
+  showPg(p);
+}
     <div class="popup-logo">function chkPop(){
   const ok=document.getElementById('c1').checked&&document.getElementById('c2').checked;
   document.getElementById('acceptBtn').classList.toggle('active',ok);
