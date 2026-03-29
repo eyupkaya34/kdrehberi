@@ -9,14 +9,14 @@
 body{font-family:Arial,Helvetica,sans-serif;background:#FAFAF8;color:#2D2D2D;min-height:100vh;display:flex;flex-direction:column;}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px);}
 .popup{background:#fff;border-radius:20px;padding:32px 28px;max-width:460px;width:100%;box-shadow:0 8px 40px rgba(27,46,75,0.3);}
-.popup-logo{text-align:center;font-size:36px;margin-bottom:12px;}
+.popup-logo{text-align:center;margin-bottom:16px;}
 .popup h2{color:#1B2E4B;font-size:22px;text-align:center;margin-bottom:6px;}
 .popup-sub{color:#6B7280;font-size:13px;text-align:center;margin-bottom:18px;}
 .popup-box{background:#FDF8F0;border-left:3px solid #C9A84C;border-radius:8px;padding:14px 16px;font-size:13px;color:#5C4A1E;line-height:1.7;margin-bottom:18px;}
 .check-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
 .check-row input{margin-top:3px;width:16px;height:16px;accent-color:#1B2E4B;flex-shrink:0;cursor:pointer;}
 .check-row label{font-size:13px;color:#444;line-height:1.5;cursor:pointer;}
-.check-row a{color:#C9A84C;text-decoration:none;}
+.check-row a{color:#C9A84C;text-decoration:none;font-weight:600;}
 .popup-btn{width:100%;padding:14px;border:none;border-radius:10px;font-size:15px;font-weight:bold;cursor:not-allowed;background:#D1D5DB;color:#9CA3AF;transition:all 0.3s;margin-top:6px;}
 .popup-btn.active{background:#1B2E4B;color:#fff;cursor:pointer;}
 .popup-btn.active:hover{background:#C9A84C;color:#1B2E4B;}
@@ -27,18 +27,10 @@ header{background:#1B2E4B;border-bottom:2px solid #C9A84C;padding:12px 24px 12px
 .logo-sub{color:#C9A84C;font-size:10px;letter-spacing:1px;margin-top:2px;}
 .beta-badge{font-size:10px;font-weight:600;color:#C9A84C;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);padding:3px 10px;border-radius:20px;}
 main{flex:1;display:flex;flex-direction:column;align-items:center;padding:40px 16px 60px;}
-.container{width:100%;max-width:680px;display:flex;flex-direction:column;gap:28px;}
+.container{width:100%;max-width:680px;display:flex;flex-direction:column;gap:24px;}
 .hero{text-align:center;padding:8px 4px;}
-.hero h1{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:800;color:#1B2E4B;line-height:1.2;letter-spacing:-0.5px;margin-bottom:12px;}
-.hero p{font-size:16px;color:#6B7280;line-height:1.7;max-width:480px;margin:0 auto 16px;}
-.counter-badge{display:inline-flex;align-items:center;gap:8px;background:#F0F4FA;border:1px solid #C5D3E8;border-radius:20px;padding:8px 18px;margin-bottom:16px;}
-.counter-badge strong{font-size:14px;font-weight:700;color:#1B2E4B;}
-.trust-badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
-.trust-badge{display:flex;align-items:center;gap:6px;font-size:12px;color:#6B7280;background:#fff;border:1px solid #E8E3DC;border-radius:20px;padding:6px 14px;}
-.section-label{font-size:10px;font-weight:600;color:#6B7280;letter-spacing:2px;text-transform:uppercase;}
-.guidance-btns{display:flex;flex-wrap:wrap;gap:10px;}
-.guid-btn{background:#fff;border:1px solid #E8E3DC;color:#2D2D2D;font-size:14px;font-weight:500;padding:10px 20px;border-radius:20px;cursor:pointer;transition:all 0.2s;}
-.guid-btn:hover{border-color:#C9A84C;background:#FDF8F0;color:#1B2E4B;}
+.hero h1{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:800;color:#1B2E4B;line-height:1.2;margin-bottom:10px;}
+.hero p{font-size:15px;color:#6B7280;line-height:1.7;max-width:480px;margin:0 auto;}
 .card{background:#fff;border-radius:18px;border:1px solid #E8E3DC;border-left:4px solid #C9A84C;box-shadow:0 2px 16px rgba(27,46,75,0.07);padding:24px;}
 .card-title{font-size:14px;font-weight:700;color:#1B2E4B;margin-bottom:4px;}
 .card-sub{font-size:13px;color:#6B7280;margin-bottom:16px;}
@@ -57,11 +49,6 @@ textarea::placeholder{color:#A0A0A0;}
 .btn-inner{display:flex;align-items:center;justify-content:center;gap:8px;}
 .spin{display:inline-block;width:16px;height:16px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.example-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-@media(max-width:500px){.example-grid{grid-template-columns:1fr;}}
-.example-btn{text-align:left;background:#fff;border:1px solid #E8E3DC;border-radius:12px;padding:14px 16px;font-size:13px;color:#2D2D2D;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;transition:all 0.2s;}
-.example-btn:hover{border-color:#C9A84C;background:#FDF8F0;color:#1B2E4B;}
-.example-arrow{color:#C9A84C;font-size:13px;flex-shrink:0;}
 .sections{display:flex;flex-direction:column;gap:12px;animation:fadeUp 0.5s ease both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .sec-card{border-radius:12px;border:1px solid;padding:18px;}
@@ -97,7 +84,7 @@ textarea::placeholder{color:#A0A0A0;}
 .kvkk-row{display:flex;align-items:flex-start;gap:10px;margin-top:14px;}
 .kvkk-row input{margin-top:2px;width:16px;height:16px;accent-color:#1B2E4B;flex-shrink:0;cursor:pointer;}
 .kvkk-row label{font-size:12px;color:#6B7280;line-height:1.6;cursor:pointer;}
-.kvkk-row a{color:#C9A84C;text-decoration:none;}
+.kvkk-row a{color:#C9A84C;text-decoration:none;font-weight:600;}
 .analyzing-wrap{display:flex;flex-direction:column;gap:16px;align-items:center;margin-top:16px;}
 .pulse-icon{position:relative;width:80px;height:80px;display:flex;align-items:center;justify-content:center;}
 .pulse-ring{position:absolute;inset:0;border-radius:50%;background:rgba(27,46,75,0.1);animation:ping 2.4s ease-in-out infinite;}
@@ -114,22 +101,6 @@ textarea::placeholder{color:#A0A0A0;}
 .expert-dark{background:linear-gradient(135deg,#1B2E4B,#243d63);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;}
 .expert-dark p{font-size:13px;font-weight:600;color:#fff;}
 .expert-dark small{font-size:12px;color:rgba(201,168,76,0.8);font-weight:400;display:block;margin-top:2px;}
-.big-expert{background:linear-gradient(135deg,#1B2E4B,#243d63);border-radius:18px;padding:36px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(27,46,75,0.25);}
-.big-expert h2{color:#fff;font-size:18px;font-weight:700;}
-.big-expert p{color:rgba(201,168,76,0.8);font-size:13px;max-width:280px;}
-.big-expert small{color:rgba(255,255,255,0.4);font-size:11px;}
-.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-@media(max-width:480px){.trust-grid{grid-template-columns:1fr;}}
-.trust-item{background:#fff;border:1px solid #E8E3DC;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:10px;}
-.trust-item:hover{border-color:#C9A84C;}
-.faq-list{display:flex;flex-direction:column;gap:10px;}
-.faq-item{background:#fff;border:1px solid #E8E3DC;border-radius:12px;overflow:hidden;}
-.faq-item:hover{border-color:#C9A84C;}
-.faq-q{width:100%;text-align:left;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;background:none;border:none;}
-.faq-q-text{font-size:13px;font-weight:600;color:#1B2E4B;}
-.faq-icon{color:#C9A84C;font-size:18px;font-weight:700;flex-shrink:0;}
-.faq-a{padding:12px 18px 16px;font-size:13px;color:#6B7280;line-height:1.7;border-top:1px solid #E8E3DC;display:none;}
-.faq-a.open{display:block;}
 .star-box{background:#FAFAF8;border:1px solid #E8E3DC;border-radius:12px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:10px;}
 .stars{display:flex;gap:4px;}
 .star-btn{font-size:24px;background:none;border:none;cursor:pointer;transition:transform 0.15s;color:#D1D5DB;}
@@ -143,29 +114,34 @@ textarea::placeholder{color:#A0A0A0;}
 .benefit-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#2D2D2D;}
 .benefit-check{color:#16A34A;font-weight:700;flex-shrink:0;}
 .ssl-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:#9CA3AF;}
-.legal-wrap{max-width:680px;margin:0 auto;padding:30px 16px;}
-.legal-back{background:none;border:1px solid #C9A84C;color:#C9A84C;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;margin-bottom:20px;}
+.faq-list{display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:#fff;border:1px solid #E8E3DC;border-radius:12px;overflow:hidden;}
+.faq-item:hover{border-color:#C9A84C;}
+.faq-q{width:100%;text-align:left;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;background:none;border:none;}
+.faq-q-text{font-size:13px;font-weight:600;color:#1B2E4B;}
+.faq-icon{color:#C9A84C;font-size:18px;font-weight:700;flex-shrink:0;}
+.faq-a{padding:12px 18px 16px;font-size:13px;color:#6B7280;line-height:1.7;border-top:1px solid #E8E3DC;display:none;}
+.faq-a.open{display:block;}
 .legal-card{background:#fff;border-radius:14px;padding:28px;border:1px solid #E8E3DC;}
 .legal-card h1{color:#1B2E4B;font-size:20px;border-bottom:2px solid #C9A84C;padding-bottom:10px;margin-bottom:20px;}
 .legal-card h3{color:#1B2E4B;font-size:14px;margin:18px 0 8px;}
 .legal-card p{color:#555;font-size:13px;line-height:1.8;margin-bottom:8px;}
+.legal-back{background:none;border:1px solid #C9A84C;color:#C9A84C;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;margin-bottom:20px;}
 .help-btn{position:fixed;bottom:20px;right:20px;background:#C9A84C;color:#1B2E4B;width:44px;height:44px;border-radius:50%;border:none;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);z-index:99;}
 footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align:center;}
 .footer-links{display:flex;justify-content:center;gap:16px;margin-bottom:8px;}
 .footer-links a{font-size:13px;color:#C9A84C;text-decoration:none;}
 .footer-disc{font-size:11px;color:#9CA3AF;line-height:1.6;}
-  .hamburger{position:fixed;top:14px;left:16px;right:auto;z-index:500;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px;}
+.hamburger{position:fixed;top:14px;left:16px;right:auto;z-index:500;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px;}
 .hamburger span{display:block;width:24px;height:2px;background:#C9A84C;border-radius:2px;transition:all 0.3s;}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-.sidebar{position:fixed;top:0;left:-280px;width:260px;height:100vh;background:#1B2E4B;z-index:400;transition:right 0.3s ease;box-shadow:4px 0 20px rgba(0,0,0,0.3);display:flex;flex-direction:column;padding-top:70px;}
+.sidebar{position:fixed;top:0;left:-280px;width:260px;height:100vh;background:#1B2E4B;z-index:400;transition:left 0.3s ease;box-shadow:4px 0 20px rgba(0,0,0,0.3);display:flex;flex-direction:column;padding-top:70px;}
 .sidebar.open{left:0;}
 .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;display:none;backdrop-filter:blur(2px);}
 .sidebar-overlay.open{display:block;}
 .sidebar-logo{padding:0 20px 24px;border-bottom:1px solid rgba(201,168,76,0.2);margin-bottom:12px;}
-.sidebar-logo p{color:#C9A84C;font-size:11px;letter-spacing:1px;margin-top:2px;}
-.sidebar-logo strong{color:#fff;font-size:15px;}
 .nav-item{display:flex;align-items:center;gap:12px;padding:14px 20px;color:#a0b0c8;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;border:none;background:none;width:100%;text-align:left;}
 .nav-item:hover{background:rgba(201,168,76,0.1);color:#C9A84C;}
 .nav-item.active{background:rgba(201,168,76,0.15);color:#C9A84C;border-left:3px solid #C9A84C;}
@@ -178,21 +154,37 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
 .coming-soon .cs-icon{font-size:48px;margin-bottom:16px;}
 .coming-soon h2{font-size:18px;font-weight:700;color:#1B2E4B;margin-bottom:8px;}
 .coming-soon p{font-size:14px;line-height:1.6;}
+.expert-type{background:#F7F9FC;border-radius:12px;padding:16px;border:1px solid #E8E3DC;margin-bottom:10px;}
+.expert-type h3{font-size:13px;font-weight:700;color:#1B2E4B;margin-bottom:4px;}
+.expert-type p{font-size:12px;color:#6B7280;line-height:1.6;}
+.expert-type a{font-size:12px;color:#C9A84C;font-weight:600;display:block;margin-top:6px;}
 </style>
 </head>
 <body>
 
+<!-- WELCOME POPUP -->
 <div class="overlay" id="welcomePopup">
   <div class="popup">
-    function popupLegal(p){
-  document.getElementById('welcomePopup').style.display='none';
-  document.getElementById('mainApp').style.display='flex';
-  showPg(p);
-}
-    <div class="popup-logo">function chkPop(){
-  const ok=document.getElementById('c1').checked&&document.getElementById('c2').checked;
-  document.getElementById('acceptBtn').classList.toggle('active',ok);
-}
+    <div class="popup-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="150" height="60">
+        <g transform="translate(6,6)">
+          <rect x="8" y="12" width="11" height="16" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
+          <rect x="8" y="8" width="11" height="5" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
+          <line x1="6" y1="28" x2="21" y2="28" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+          <polygon points="29,13 34,16 29,19" fill="#C9A84C"/>
+          <line x1="22" y1="16" x2="30" y2="16" stroke="#C9A84C" stroke-width="1.5"/>
+          <rect x="34" y="4" width="10" height="24" rx="2" fill="#C9A84C" opacity="0.15"/>
+          <rect x="34" y="4" width="10" height="24" rx="2" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <rect x="37" y="8" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
+          <rect x="37" y="15" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
+          <rect x="36" y="21" width="6" height="7" rx="1" fill="#C9A84C" opacity="0.5"/>
+        </g>
+        <line x1="58" y1="8" x2="58" y2="40" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+        <text x="63" y="22" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#1B2E4B" letter-spacing="0.3">Kentsel Dönüşüm</text>
+        <text x="63" y="34" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#C9A84C" letter-spacing="0.3">Rehberi</text>
+        <line x1="63" y1="37" x2="116" y2="37" stroke="#C9A84C" stroke-width="1"/>
+      </svg>
+    </div>
     <h2>Hoş Geldiniz</h2>
     <p class="popup-sub">Kentsel Dönüşüm Rehberi</p>
     <div class="popup-box">Bu platform, kentsel dönüşüm süreçleri hakkında <strong>genel bilgilendirme</strong> amaçlıdır. Kesin hukuki veya mühendislik kararı vermez. Yüklediğiniz belgeler analiz sonrası otomatik olarak silinir.</div>
@@ -203,75 +195,55 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
   </div>
 </div>
 
+<!-- MAIN APP -->
 <div id="mainApp" style="display:none;flex:1;flex-direction:column;">
-  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 <div class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="130" height="40">
-  <g transform="translate(6,6)">
-    <rect x="8" y="12" width="11" height="16" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
-    <rect x="8" y="8" width="11" height="5" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
-    <line x1="6" y1="28" x2="21" y2="28" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
-    <polygon points="29,13 34,16 29,19" fill="#C9A84C"/>
-    <line x1="22" y1="16" x2="30" y2="16" stroke="#C9A84C" stroke-width="1.5"/>
-    <rect x="34" y="4" width="10" height="24" rx="2" fill="#C9A84C" opacity="0.15"/>
-    <rect x="34" y="4" width="10" height="24" rx="2" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-    <rect x="37" y="8" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
-    <rect x="37" y="15" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
-    <rect x="36" y="21" width="6" height="7" rx="1" fill="#C9A84C" opacity="0.5"/>
-  </g>
-  <line x1="58" y1="8" x2="58" y2="40" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
-  <text x="63" y="22" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ffffff" letter-spacing="0.3">Kentsel Dönüşüm</text>
-  <text x="63" y="34" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#C9A84C" letter-spacing="0.3">Rehberi</text>
-  <line x1="63" y1="37" x2="116" y2="37" stroke="#C9A84C" stroke-width="1"/>
-</svg>
-    <p>KENTSEL DÖNÜŞÜM REHBERİ</p>
+      <g transform="translate(6,6)">
+        <rect x="8" y="12" width="11" height="16" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
+        <rect x="8" y="8" width="11" height="5" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
+        <line x1="6" y1="28" x2="21" y2="28" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+        <polygon points="29,13 34,16 29,19" fill="#C9A84C"/>
+        <line x1="22" y1="16" x2="30" y2="16" stroke="#C9A84C" stroke-width="1.5"/>
+        <rect x="34" y="4" width="10" height="24" rx="2" fill="#C9A84C" opacity="0.15"/>
+        <rect x="34" y="4" width="10" height="24" rx="2" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+        <rect x="37" y="8" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
+        <rect x="37" y="15" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
+        <rect x="36" y="21" width="6" height="7" rx="1" fill="#C9A84C" opacity="0.5"/>
+      </g>
+      <line x1="58" y1="8" x2="58" y2="40" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+      <text x="63" y="22" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ffffff" letter-spacing="0.3">Kentsel Dönüşüm</text>
+      <text x="63" y="34" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#C9A84C" letter-spacing="0.3">Rehberi</text>
+      <line x1="63" y1="37" x2="116" y2="37" stroke="#C9A84C" stroke-width="1"/>
+    </svg>
   </div>
   <button class="nav-item active" id="nav-home" onclick="navTo('home')"><span class="nav-icon">🏠</span>Ana Sayfa</button>
   <button class="nav-item" id="nav-analizlerim" onclick="navTo('analizlerim')"><span class="nav-icon">📋</span>Analizlerim</button>
   <button class="nav-item" id="nav-bildirimler" onclick="navTo('bildirimler')"><span class="nav-icon">🔔</span>Bildirimler</button>
+  <button class="nav-item" id="nav-uzmanlar" onclick="navTo('uzmanlar')"><span class="nav-icon">👤</span>Uzmanlar</button>
   <button class="nav-item" id="nav-ayarlar" onclick="navTo('ayarlar')"><span class="nav-icon">⚙️</span>Ayarlar ve Gizlilik</button>
   <button class="nav-item" id="nav-yardim" onclick="navTo('yardim')"><span class="nav-icon">❓</span>Yardım</button>
   <div class="sidebar-footer"><p>kentseldonusumrehber.com.tr<br>© 2026 Tüm hakları saklıdır.</p></div>
 </div>
-<button class="hamburger" id="hamburger" onclick="toggleSidebar()">
-  <span></span><span></span><span></span>
-</button>
+<button class="hamburger" id="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+
 <header>
   <div class="header-inner">
-    <div style="display:flex;align-items:center;gap:12px;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="160" height="48">
-    <rect x="0" y="0" width="120" height="48" rx="8" fill="#1B2E4B"/>
-    <g transform="translate(6,6)">
-      <rect x="8" y="12" width="11" height="16" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
-      <rect x="8" y="8" width="11" height="5" rx="1" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="3 1.5"/>
-      <line x1="6" y1="28" x2="21" y2="28" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
-      <line x1="22" y1="16" x2="30" y2="16" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr)"/>
-      <polygon points="29,13 34,16 29,19" fill="#C9A84C"/>
-      <rect x="34" y="4" width="10" height="24" rx="2" fill="#C9A84C" opacity="0.15"/>
-      <rect x="34" y="4" width="10" height="24" rx="2" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-      <rect x="37" y="8" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
-      <rect x="37" y="15" width="4" height="4" rx="0.5" fill="#C9A84C" opacity="0.6"/>
-      <rect x="36" y="21" width="6" height="7" rx="1" fill="#C9A84C" opacity="0.5"/>
-      <rect x="32" y="9" width="3" height="19" rx="1" fill="#C9A84C" opacity="0.15"/>
-      <rect x="32" y="9" width="3" height="19" rx="1" fill="none" stroke="#C9A84C" stroke-width="1"/>
-    </g>
-    <line x1="58" y1="8" x2="58" y2="40" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
-    <text x="63" y="22" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ffffff" letter-spacing="0.3">Kentsel Dönüşüm</text>
-    <text x="63" y="34" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#C9A84C" letter-spacing="0.3">Rehberi</text>
-    <line x1="63" y1="37" x2="116" y2="37" stroke="#C9A84C" stroke-width="1"/>
-  </svg>
-</div>
+    <div><div class="logo-title">🏗️ Kentsel Dönüşüm Rehberi</div><div class="logo-sub">YAPAY ZEKA DESTEKLİ REHBERLİK</div></div>
     <span class="beta-badge">Beta</span>
   </div>
 </header>
 
+<!-- HOME PAGE -->
 <div id="homePg">
 <main><div class="container">
-
   <div class="hero">
     <h1>Kentsel Dönüşüm<br>Rehberiniz</h1>
-    <p>Sorularınızı sorun veya belgenizi yükleyin.<br>Yapay zeka saniyeler içinde analiz eder.</p>
+    <p>Sorularınızı sorun veya belgenizi yükleyin. Yapay zeka saniyeler içinde analiz eder.</p>
   </div>
 
   <div class="card">
@@ -301,11 +273,11 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
     <input type="file" id="pdfInput" accept="application/pdf" style="display:none;" onchange="onFC(this)">
     <div id="softWarn" class="soft-warn" style="display:none;"><span style="color:#D97706;flex-shrink:0;">⚠️</span><p id="swTxt"></p></div>
     <div id="pdfErr" style="display:none;margin-top:12px;background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;padding:12px 14px;font-size:13px;color:#B91C1C;"></div>
-    <div id="kvkkRow" class="kvkk-row" style="display:none;"><input type="checkbox" id="kvkkChk" onchange="chkKv()"><label for="kvkkChk"><a href="#" onclick="showPg('kullanim');return false;">Kullanım Koşullarını</a> ve <a href="#" onclick="showPg('kvkk');return false;">KVKK Aydınlatma Metnini</a> okudum, kabul ediyorum.</label></div>
+    <div id="kvkkRow" class="kvkk-row" style="display:none;"><input type="checkbox" id="kvkkChk" onchange="chkKv()"><label for="kvkkChk"><a href="#" onclick="navTo('kvkk');return false;">Kullanım Koşullarını</a> ve <a href="#" onclick="navTo('kvkk');return false;">KVKK Aydınlatma Metnini</a> okudum, kabul ediyorum.</label></div>
     <button class="btn btn-navy" id="analyzeBtn" style="display:none;margin-top:14px;" onclick="startAn()">Belgeyi Analiz Et</button>
     <div id="analyzingDiv" style="display:none;">
       <div class="analyzing-wrap">
-        <div class="pulse-icon"><div class="pulse-ring"></div><div class="pulse-ring2"></div><div class="pulse-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 9h.01M12 9h.01M15 9h.01"/><path d="M9 13h.01M12 13h.01M15 13h.01"/></svg></div></div>
+        <div class="pulse-icon"><div class="pulse-ring"></div><div class="pulse-ring2"></div><div class="pulse-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div></div>
         <div class="status-box"><span class="spin" style="border-color:#C9A84C;border-top-color:transparent;"></span><p style="font-size:13px;font-weight:600;color:#1B2E4B;" id="statusMsg">📄 Belgeniz yükleniyor...</p></div>
         <p style="font-size:11px;color:#9CA3AF;display:none;" id="estTime"></p>
         <div class="progress-wrap"><div class="progress-row"><span style="font-size:11px;color:#6B7280;" id="microMsg">Belgeniz güvenli şekilde işleniyor...</span><span style="font-size:12px;font-weight:700;color:#C9A84C;" id="pctTxt">0%</span></div><div class="progress-track"><div class="progress-fill" id="pFill" style="width:0%"></div></div></div>
@@ -323,15 +295,71 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
       <div id="pdfExp" style="display:none;" class="expert-dark"><p>Bu belge için detaylı inceleme önerilir.<small>Uzman incelemesi ile riskleri netleştirebilirsiniz.</small></p><button class="btn btn-gold btn-sm" onclick="navTo('uzmanlar')" style="align-self:flex-start;">Uzmanla Detaylı İncele</button></div>
     </div>
   </div>
-
 </div></main>
 </div>
-  <div class="footer-links">
-  <a href="#" onclick="showPg('kullanim');return false;">Kullanım Koşulları</a>
-  <a href="#" onclick="showPg('kvkk');return false;">KVKK</a>
+
+<!-- ANALİZLERİM -->
+<div class="page-content" id="pg-analizlerim">
+<main><div class="container"><div class="coming-soon"><div class="cs-icon">📋</div><h2>Analizlerim</h2><p>Daha önce yaptığınız PDF analizleri burada görünecek.<br>Bu özellik yakında aktif olacak.</p></div></div></main>
 </div>
-<p class="footer-disc">kentseldonusumrehber.com.tr — Bu platform genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı vermez.</p>
-  <div id="kvkkPg" style="display:none;">
+
+<!-- BİLDİRİMLER -->
+<div class="page-content" id="pg-bildirimler">
+<main><div class="container"><div class="coming-soon"><div class="cs-icon">🔔</div><h2>Bildirimler</h2><p>Analiz sonuçları ve sistem bildirimleri burada görünecek.<br>Bu özellik yakında aktif olacak.</p></div></div></main>
+</div>
+
+<!-- UZMANLAR -->
+<div class="page-content" id="pg-uzmanlar">
+<main><div class="container" style="padding-top:20px;">
+  <div class="card">
+    <div class="card-title">👤 Uzman Desteği Alın</div>
+    <p class="card-sub">Kentsel dönüşüm sürecinde doğru uzmana yönlenin</p>
+    <div style="margin-top:16px;">
+      <div class="expert-type"><h3>⚖️ Kentsel Dönüşüm Avukatı</h3><p>Sözleşme inceleme, hak kayıplarının önlenmesi ve müzakere desteği için.</p><a href="https://barobirlik.org.tr" target="_blank">Türkiye Barolar Birliği →</a></div>
+      <div class="expert-type"><h3>🏗️ İnşaat Mühendisi / Mimar</h3><p>Teknik şartname kontrolü, yapı kalitesi ve teslim süresi değerlendirmesi için.</p><a href="https://mimarlar.org" target="_blank">Mimarlar Odası →</a></div>
+      <div class="expert-type"><h3>💰 Mali Müşavir</h3><p>Kira yardımı, vergi avantajları ve finansal etkilerin analizi için.</p><a href="https://turmob.org.tr" target="_blank">TÜRMOB →</a></div>
+    </div>
+    <div style="background:#1B2E4B;border-radius:12px;padding:20px;text-align:center;margin-top:8px;">
+      <p style="color:#C9A84C;font-weight:700;font-size:14px;margin-bottom:6px;">Bu raporu uzmanınıza gösterin</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:12px;line-height:1.6;">Sözleşmenizi imzalamadan önce profesyonel destek alın.</p>
+    </div>
+  </div>
+</div></main>
+</div>
+
+<!-- AYARLAR -->
+<div class="page-content" id="pg-ayarlar">
+<main><div class="container" style="padding-top:20px;">
+  <div class="card">
+    <div class="card-title">⚙️ Ayarlar ve Gizlilik</div>
+    <p class="card-sub">Hesap ve gizlilik tercihlerinizi yönetin</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;"><div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">Veri Saklama</p><p style="font-size:12px;color:#6B7280;">Belgeler analiz sonrası otomatik silinir</p></div><span style="font-size:12px;color:#C9A84C;font-weight:600;">Aktif</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;"><div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">KVKK Onayı</p><p style="font-size:12px;color:#6B7280;">İlk girişte onaylandı</p></div><button onclick="localStorage.removeItem('tok');location.reload();" style="font-size:12px;color:#EF4444;background:none;border:none;cursor:pointer;text-decoration:underline;">Sıfırla</button></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:#F7F9FC;border-radius:10px;border:1px solid #E8E3DC;"><div><p style="font-size:13px;font-weight:600;color:#1B2E4B;">Uygulama Versiyonu</p><p style="font-size:12px;color:#6B7280;">kentseldonusumrehber.com.tr</p></div><span style="font-size:12px;color:#9CA3AF;">v1.0 Beta</span></div>
+    </div>
+  </div>
+</div></main>
+</div>
+
+<!-- YARDIM -->
+<div class="page-content" id="pg-yardim">
+<main><div class="container" style="padding-top:20px;">
+  <div class="card">
+    <div class="card-title">❓ Yardım Merkezi</div>
+    <p class="card-sub">Sık sorulan sorular ve destek</p>
+    <div class="faq-list" style="margin-top:16px;">
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Bu platform nasıl çalışır?</span><span class="faq-icon">+</span></button><div class="faq-a">Sorunuzu yazın veya PDF belgenizi yükleyin. Yapay zeka saniyeler içinde Türkçe analiz sunar. Sonuçlar genel bilgilendirme amaçlıdır.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Hangi belgeler destekleniyor?</span><span class="faq-icon">+</span></button><div class="faq-a">Sözleşmeler, teknik şartnameler, raporlar ve resmi yazışmalar. Maksimum 30 sayfa ve 10MB PDF formatı.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Raporu nasıl indirebilirim?</span><span class="faq-icon">+</span></button><div class="faq-a">PDF analizi tamamlandıktan sonra "Raporu İndir — 49,99 TL" butonuna tıklayın. Ödeme sonrası rapor otomatik hazırlanır.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tFaq(this)"><span class="faq-q-text">Belgelerim güvende mi?</span><span class="faq-icon">+</span></button><div class="faq-a">Evet. Yüklenen belgeler yalnızca analiz için kullanılır ve işlem sonrası otomatik silinir. Hiçbir belge kalıcı olarak saklanmaz.</div></div>
+    </div>
+  </div>
+</div></main>
+</div>
+
+<!-- KVKK -->
+<div class="page-content" id="pg-kvkk">
 <main><div class="container" style="padding-top:20px;">
   <button class="legal-back" onclick="navTo('home')">← Ana Sayfaya Dön</button>
   <div class="legal-card">
@@ -340,81 +368,111 @@ footer{background:#fff;border-top:1px solid #E8E3DC;padding:24px 20px;text-align
     <h3>2. Hangi Veriler İşlenir</h3><p>Yüklenen belgeler, sorulan sorular ve IP adresi geçici olarak işlenir.</p>
     <h3>3. Verilerin Kullanım Amacı</h3><p>Veriler yalnızca yapay zeka analizi için kullanılır. Üçüncü şahıslarla paylaşılmaz.</p>
     <h3>4. Verilerin Saklanması</h3><p>Yüklenen belgeler analiz sonrası otomatik olarak silinir.</p>
-    <h3>5. Kullanıcı Hakları</h3><p>KVKK madde 11 kapsamında haklarınız saklıdır.</p>
+    <h3>5. Kullanıcı Hakları</h3><p>KVKK madde 11 kapsamında kişisel verilerinize erişim, düzeltme ve silme hakkına sahipsiniz.</p>
+    <h3>6. Çerezler</h3><p>Platform yalnızca temel işlevsellik için zorunlu çerezler kullanır.</p>
+    <h3>7. İletişim</h3><p>kentseldonusumrehber.com.tr</p>
+  </div>
+</div></main>
+</div>
+
+<!-- KULLANIM KOŞULLARI -->
+<div class="page-content" id="pg-kullanim">
+<main><div class="container" style="padding-top:20px;">
+  <button class="legal-back" onclick="navTo('home')">← Ana Sayfaya Dön</button>
+  <div class="legal-card">
+    <h1>Kullanım Koşulları</h1>
+    <h3>1. Hizmetin Amacı</h3><p>Bu platform yalnızca genel bilgilendirme amaçlıdır. Kesin hukuki, mühendislik veya yapısal karar vermez.</p>
+    <h3>2. Sorumluluk Reddi</h3><p>Platformdaki bilgiler profesyonel danışmanlık yerine geçmez. Kullanıcı, kararlarından kendisi sorumludur.</p>
+    <h3>3. Uzman Yönlendirmesi</h3><p>Ciddi durumlarda mutlaka lisanslı mimar, mühendis veya avukana başvurunuz.</p>
+    <h3>4. Hizmet Kullanımı</h3><p>Bu platformu yalnızca yasal amaçlarla kullanabilirsiniz.</p>
+    <h3>5. Değişiklik Hakkı</h3><p>Platform içeriği önceden haber verilmeksizin değiştirilebilir.</p>
     <h3>6. İletişim</h3><p>kentseldonusumrehber.com.tr</p>
   </div>
 </div></main>
 </div>
 
-<div id="kulPg" style="display:none;">
-<main><div class="container" style="padding-top:20px;">
-  <button class="legal-back" onclick="navTo('home')">← Ana Sayfaya Dön</button>
-  <div class="legal-card">
-    <h1>Kullanım Koşulları</h1>
-    <h3>1. Hizmetin Amacı</h3><p>Bu platform yalnızca genel bilgilendirme amaçlıdır. Kesin hukuki karar vermez.</p>
-    <h3>2. Sorumluluk Reddi</h3><p>Platformdaki bilgiler profesyonel danışmanlık yerine geçmez.</p>
-    <h3>3. Uzman Yönlendirmesi</h3><p>Ciddi durumlarda lisanslı mimar, mühendis veya avukana başvurunuz.</p>
-    <h3>4. Hizmet Kullanımı</h3><p>Bu platformu yalnızca yasal amaçlarla kullanabilirsiniz.</p>
-    <h3>5. İletişim</h3><p>kentseldonusumrehber.com.tr</p>
-  </div>
-</div></main>
-</div>
-  <div id="pg-uzmanlar" style="display:none;">
-<main><div class="container" style="padding-top:20px;">
-  <div class="card">
-    <div class="card-title">👤 Uzman Desteği Alın</div>
-    <p class="card-sub">Kentsel dönüşüm sürecinde doğru uzmana yönlenin</p>
-    <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
-      <div style="background:#F0F4FA;border-radius:12px;padding:16px;border:1px solid #C5D3E8;">
-        <p style="font-size:13px;font-weight:700;color:#1B2E4B;margin-bottom:4px;">⚖️ Kentsel Dönüşüm Avukatı</p>
-        <p style="font-size:12px;color:#6B7280;line-height:1.6;">Sözleşme inceleme, hak kayıplarının önlenmesi ve müzakere desteği için.</p>
-        <p style="font-size:12px;color:#C9A84C;margin-top:6px;font-weight:600;">Türkiye Barolar Birliği → barobirlik.org.tr</p>
-      </div>
-      <div style="background:#F0FDF4;border-radius:12px;padding:16px;border:1px solid #BBF7D0;">
-        <p style="font-size:13px;font-weight:700;color:#14532D;margin-bottom:4px;">🏗️ İnşaat Mühendisi / Mimar</p>
-        <p style="font-size:12px;color:#6B7280;line-height:1.6;">Teknik şartname kontrolü, yapı kalitesi ve teslim süresi değerlendirmesi için.</p>
-        <p style="font-size:12px;color:#C9A84C;margin-top:6px;font-weight:600;">Mimarlar Odası → mimarlar.org</p>
-      </div>
-      <div style="background:#FDF8F0;border-radius:12px;padding:16px;border:1px solid #E8D5A3;">
-        <p style="font-size:13px;font-weight:700;color:#8B6914;margin-bottom:4px;">💰 Mali Müşavir</p>
-        <p style="font-size:12px;color:#6B7280;line-height:1.6;">Kira yardımı, vergi avantajları ve finansal etkilerin analizi için.</p>
-        <p style="font-size:12px;color:#C9A84C;margin-top:6px;font-weight:600;">TÜRMOB → turmob.org.tr</p>
-      </div>
-    </div>
-    <div style="background:#1B2E4B;border-radius:12px;padding:20px;text-align:center;margin-top:16px;">
-      <p style="color:#C9A84C;font-weight:700;font-size:14px;margin-bottom:6px;">Bu raporu uzmanınıza gösterin</p>
-      <p style="color:rgba(255,255,255,0.7);font-size:12px;line-height:1.6;">Kentsel dönüşüm haklarınızı koruyun. Sözleşmenizi imzalamadan önce profesyonel destek alın.</p>
+</div><!-- end mainApp -->
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="payModal" style="display:none;" onclick="closePay()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head"><h3>Raporunuzu İndirin</h3><p class="modal-price">49,99 TL</p></div>
+    <div class="modal-body">
+      <div><div class="benefit-item"><span class="benefit-check">✓</span><span>Profesyonel PDF analiz raporu</span></div><div class="benefit-item"><span class="benefit-check">✓</span><span>Risk değerlendirmesi ve güven skoru</span></div><div class="benefit-item"><span class="benefit-check">✓</span><span>Uzman yönlendirme kontrol listesi</span></div><div class="benefit-item"><span class="benefit-check">✓</span><span>Hemen indirin, dilediğinizle paylaşın</span></div></div>
+      <div id="payErr" style="display:none;background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:10px 12px;font-size:12px;color:#B91C1C;"></div>
+      <button class="btn btn-gold" id="payBtn" onclick="doPay()">Ödemeye Geç →</button>
+      <button onclick="devDL()" style="font-size:12px;color:#9CA3AF;text-decoration:underline;background:none;border:none;cursor:pointer;text-align:center;">Test: Ödemeyi Atla ve İndir</button>
+      <div class="ssl-note">🔒 <span>256-bit SSL ile güvenli ödeme</span></div>
+      <button onclick="closePay()" style="font-size:12px;color:#9CA3AF;text-decoration:underline;background:none;border:none;cursor:pointer;text-align:center;">Vazgeç</button>
     </div>
   </div>
-</div></main>
 </div>
+
+<button class="help-btn" onclick="navTo('yardim')">?</button>
+
+<footer>
+  <div class="footer-links">
+    <a href="#" onclick="navTo('kullanim');return false;">Kullanım Koşulları</a>
+    <a href="#" onclick="navTo('kvkk');return false;">KVKK</a>
+  </div>
+  <p class="footer-disc">kentseldonusumrehber.com.tr — Bu platform genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı vermez.<br>© 2026 Kentsel Dönüşüm Rehberi. Tüm hakları saklıdır.</p>
 </footer>
 
 <script>
-const TIPS=['💡 Kentsel dönüşümde en az 2/3 kat malikinin onayı gerekir.','💡 Riskli yapı tespiti yaptırmak için DASK sigortanız olmalıdır.','💡 Kiracılar kentsel dönüşüm sürecinde belirli haklara sahiptir.','💡 Müteahhit seçiminde en az 3 teklif almanızı öneririz.','💡 Tapu devrinden önce tüm borçların temizlendiğini kontrol edin.','💡 Kentsel dönüşüm kredilerinde devlet desteği alabilirsiniz.'];
+const TIPS=['💡 Kentsel dönüşümde en az 2/3 kat malikinin onayı gerekir.','💡 Riskli yapı tespiti için DASK sigortanız olmalıdır.','💡 Kiracılar kentsel dönüşümde belirli haklara sahiptir.','💡 Müteahhit seçiminde en az 3 teklif almanızı öneririz.','💡 Tapu devrinden önce tüm borçların temizlendiğini kontrol edin.','💡 Kentsel dönüşüm kredilerinde devlet desteği alabilirsiniz.'];
 const PCOL={blue:'c-blue',orange:'c-orange',red:'c-red',yellow:'c-yellow',green:'c-green',purple:'c-purple'};
 const PKEYS=[{key:'🔹 Kısa Özet',label:'Kısa Özet',color:'blue'},{key:'🔹 Dikkat Edilmesi Gereken Noktalar',label:'Dikkat Edilmesi Gereken Noktalar',color:'orange'},{key:'🔹 Olası Riskler',label:'Olası Riskler',color:'red'},{key:'🔹 Eksik Bilgiler',label:'Eksik Bilgiler',color:'yellow'},{key:'🔹 Önerilen Sonraki Adımlar',label:'Önerilen Sonraki Adımlar',color:'green'},{key:'🔹 Güven Seviyesi',label:'Güven Seviyesi',color:'purple'}];
 const CKEYS=[{key:'🔹 Kısa Özet',label:'Kısa Özet',color:'blue'},{key:'🔹 Olası Riskler',label:'Olası Riskler',color:'orange'},{key:'🔹 Eksik Bilgiler',label:'Eksik Bilgiler',color:'yellow'},{key:'🔹 Sonraki Adımlar',label:'Sonraki Adımlar',color:'green'},{key:'🔹 Güven Seviyesi',label:'Güven Seviyesi',color:'purple'}];
 let pFile=null,pText='',pAnswer='',pFName='',tipTmr=null,pctTmr=null,tipI=0,curPct=0,starR=0;
 
 window.onload=()=>{if(localStorage.getItem('tok'))showMain();};
-function chkPop(){const ok=document.getElementById('c1').checked&&document.getElementById('c2').checked;document.getElementById('acceptBtn').classList.toggle('active',ok);}
-function acceptTerms(){if(!document.getElementById('c1').checked||!document.getElementById('c2').checked)return;localStorage.setItem('tok','1');showMain();}
-function showMain(){document.getElementById('welcomePopup').style.display='none';document.getElementById('mainApp').style.display='flex';}
-function showPg(p){
-  ['homePg','kvkkPg','kulPg'].forEach(id=>document.getElementById(id).style.display='none');
+
+function chkPop(){
+  const ok=document.getElementById('c1').checked&&document.getElementById('c2').checked;
+  document.getElementById('acceptBtn').classList.toggle('active',ok);
+}
+function acceptTerms(){
+  if(!document.getElementById('c1').checked||!document.getElementById('c2').checked)return;
+  localStorage.setItem('tok','1');showMain();
+}
+function showMain(){
   document.getElementById('welcomePopup').style.display='none';
-  if(!localStorage.getItem('tok'))showMain();
-  if(p==='home')document.getElementById('homePg').style.display='block';
-  else if(p==='kvkk')document.getElementById('kvkkPg').style.display='block';
-  else if(p==='kullanim')document.getElementById('kulPg').style.display='block';
+  document.getElementById('mainApp').style.display='flex';
+}
+function popupLegal(p){
+  localStorage.setItem('tok','1');
+  showMain();
+  navTo(p);
+}
+
+function navTo(page){
+  closeSidebar();
+  document.getElementById('homePg').style.display='none';
+  document.querySelectorAll('.page-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  const navBtn=document.getElementById('nav-'+page);
+  if(navBtn)navBtn.classList.add('active');
+  if(page==='home'){
+    document.getElementById('homePg').style.display='block';
+    document.getElementById('nav-home').classList.add('active');
+  } else {
+    const pg=document.getElementById('pg-'+page);
+    if(pg)pg.classList.add('active');
+  }
   window.scrollTo(0,0);
 }
-function tFaq(btn){const a=btn.nextElementSibling;const o=a.classList.toggle('open');btn.querySelector('.faq-icon').textContent=o?'−':'+';}
-function setQ(q){document.getElementById('chatInput').value=q;document.getElementById('chatInput').scrollIntoView({behavior:'smooth',block:'center'});}
-function goExpert(){
-  navTo('uzmanlar');
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
 }
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+}
+function tFaq(btn){const a=btn.nextElementSibling;const o=a.classList.toggle('open');btn.querySelector('.faq-icon').textContent=o?'−':'+';}
 
 async function askQ(){
   const q=document.getElementById('chatInput').value.trim();
@@ -422,6 +480,7 @@ async function askQ(){
   const btn=document.getElementById('askBtn');
   document.getElementById('askInner').innerHTML='<span class="spin"></span> Analiz ediliyor...';
   btn.disabled=true;
+  document.getElementById('chatAnswerCard').style.display='block';
   document.getElementById('chatAnswer').innerHTML='<div style="display:flex;align-items:center;gap:10px;color:#6B7280;font-size:13px;"><span class="spin" style="border-color:#1B2E4B;border-top-color:transparent;"></span>Analiz ediliyor...</div>';
   document.getElementById('chatExpert').style.display='none';
   try{
@@ -431,7 +490,9 @@ async function askQ(){
     document.getElementById('chatAnswer').innerHTML=secs.length?renderSecs(secs):`<p style="font-size:13px;color:#2D2D2D;line-height:1.7;">${data.answer}</p>`;
     document.getElementById('chatAnswerCard').style.display='block';
     document.getElementById('chatExpert').style.display='flex';
-  }catch(e){document.getElementById('chatAnswer').innerHTML='<p style="font-size:13px;color:#B91C1C;">Bir hata oluştu. Lütfen tekrar deneyin.</p>';}
+  }catch(e){
+    document.getElementById('chatAnswer').innerHTML='<p style="font-size:13px;color:#B91C1C;">Bir hata oluştu. Lütfen tekrar deneyin.</p>';
+  }
   document.getElementById('askInner').textContent='Analizi Başlat';btn.disabled=false;
 }
 
@@ -446,7 +507,7 @@ async function procFile(f){
   const MB=1024*1024;
   if(f.size>10*MB){showPdfErr('⚠️ Dosya boyutu 10MB sınırını aşmaktadır.');return;}
   const pages=await cntPages(f);
-  if(pages>30){showPdfErr('⚠️ Belgeniz 30 sayfadan fazla içermektedir. Lütfen belgeyi bölüp en fazla 30 sayfalık bölümler halinde yükleyiniz.');return;}
+  if(pages>30){showPdfErr('⚠️ Belgeniz 30 sayfadan fazla içermektedir. Lütfen daha kısa bölümler halinde yükleyiniz.');return;}
   pFile=f;pFName=f.name;
   const sz=f.size<MB?`${Math.round(f.size/1024)} KB`:`${(f.size/MB).toFixed(1)} MB`;
   document.getElementById('pFN').textContent=f.name;
@@ -454,7 +515,7 @@ async function procFile(f){
   document.getElementById('dE').style.display='none';document.getElementById('dErr').style.display='none';
   document.getElementById('dS').style.display='flex';document.getElementById('pdfDrop').className='file-drop selected';
   document.getElementById('pdfErr').style.display='none';
-  if(pages>=20){document.getElementById('softWarn').style.display='flex';document.getElementById('swTxt').textContent=`📄 Uzun belge tespit edildi (${pages} sayfa). Analiz 2-3 dakika sürebilir.`;}
+  if(pages>=20){document.getElementById('softWarn').style.display='flex';document.getElementById('swTxt').textContent=`📄 Uzun belge (${pages} sayfa). Analiz 2-3 dakika sürebilir.`;}
   else document.getElementById('softWarn').style.display='none';
   document.getElementById('kvkkRow').style.display='flex';
   document.getElementById('analyzeBtn').style.display='block';document.getElementById('analyzeBtn').disabled=true;
@@ -463,7 +524,6 @@ function chkKv(){document.getElementById('analyzeBtn').disabled=!document.getEle
 function showPdfErr(msg){pFile=null;document.getElementById('dE').style.display='none';document.getElementById('dS').style.display='none';document.getElementById('dErr').style.display='flex';document.getElementById('pdfDrop').className='file-drop err';document.getElementById('pdfErr').style.display='block';document.getElementById('pdfErr').textContent=msg;document.getElementById('kvkkRow').style.display='none';document.getElementById('analyzeBtn').style.display='none';document.getElementById('softWarn').style.display='none';}
 function resetPdf(e){if(e)e.stopPropagation();pFile=null;document.getElementById('pdfInput').value='';document.getElementById('dE').style.display='block';document.getElementById('dS').style.display='none';document.getElementById('dErr').style.display='none';document.getElementById('pdfDrop').className='file-drop';document.getElementById('pdfErr').style.display='none';document.getElementById('kvkkRow').style.display='none';document.getElementById('analyzeBtn').style.display='none';document.getElementById('softWarn').style.display='none';document.getElementById('kvkkChk').checked=false;}
 function resetAll(){resetPdf(null);document.getElementById('pdfDone').style.display='none';pAnswer='';pFName='';}
-
 async function cntPages(f){try{const b=await f.arrayBuffer();const t=new TextDecoder('latin1').decode(new Uint8Array(b));const m=t.match(/\/Type\s*\/Page(?!s)/g);return m?m.length:0;}catch{return 0;}}
 
 async function startAn(){
@@ -472,18 +532,39 @@ async function startAn(){
   document.getElementById('analyzingDiv').style.display='block';document.getElementById('pdfDone').style.display='none';
   setSt('📄 Belgeniz yükleniyor...');startPct();startTips();
   try{
-    pText=await exText(pFile);setSt('🔍 Belge Claude\'a gönderiliyor...');
-    document.getElementById('estTime').style.display='block';document.getElementById('estTime').textContent='Tahmini süre: 30-60 saniye';
+    pText=await exText(pFile);
+    setSt('🔍 Belge analiz için hazırlanıyor...');
+    document.getElementById('estTime').style.display='block';
+    document.getElementById('estTime').textContent='Tahmini süre: 30-60 saniye';
     const res=await fetch('/api/analyze-pdf',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:pText})});
     const reader=res.body.getReader();const dec=new TextDecoder();let full='';
-    setSt('📝 Analiz tamamlanıyor...');setPct(90);
-    while(true){const{done,value}=await reader.read();if(done)break;const chunk=dec.decode(value);for(const line of chunk.split('\n')){if(line.startsWith('data: ')&&line!=='data: [DONE]'){try{const d=JSON.parse(line.slice(6));if(d.text)full+=d.text;}catch{}}}}
-   pAnswer=full.replace(/\*\*/g,'').replace(/^#{1,3}\s*/gm,'').replace(/^-{3,}$/gm,'').replace(/\[[-]+\]/g,'').replace(/^[ \t]*\*(?!\*)/gm,'•').trim();
-    stopPct();setPct(100);document.getElementById('analyzingDiv').style.display='none';showDone();
+    setSt('🤖 Yapay zeka analiz ediyor...');setPct(90);
+    while(true){
+      const{done,value}=await reader.read();if(done)break;
+      const chunk=dec.decode(value);
+      for(const line of chunk.split('\n')){
+        if(line.startsWith('data: ')&&line!=='data: [DONE]'){
+          try{const d=JSON.parse(line.slice(6));if(d.text)full+=d.text;}catch{}
+        }
+      }
+    }
+    pAnswer=full
+      .replace(/\*\*/g,'')
+      .replace(/^#{1,3}\s*/gm,'')
+      .replace(/^-{3,}$/gm,'')
+      .replace(/\[[-=]+\]/g,'')
+      .replace(/^[ \t]*\*(?!\*)/gm,'•')
+      .trim();
+    stopPct();setPct(100);
+    document.getElementById('analyzingDiv').style.display='none';
+    showDone();
   }catch(e){
-    stopPct();document.getElementById('analyzingDiv').style.display='none';
-    document.getElementById('pdfErr').style.display='block';document.getElementById('pdfErr').textContent='Analiz sırasında bir hata oluştu. Lütfen tekrar deneyin.';
-    document.getElementById('analyzeBtn').style.display='block';document.getElementById('kvkkRow').style.display='flex';
+    stopPct();
+    document.getElementById('analyzingDiv').style.display='none';
+    document.getElementById('pdfErr').style.display='block';
+    document.getElementById('pdfErr').textContent='Analiz sırasında bir hata oluştu. Lütfen tekrar deneyin.';
+    document.getElementById('analyzeBtn').style.display='block';
+    document.getElementById('kvkkRow').style.display='flex';
   }
 }
 
@@ -496,141 +577,80 @@ function showDone(){
 }
 
 async function exText(f){
-  if(!window.pdfjsLib){await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
-  const lib=window.pdfjsLib;lib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  if(!window.pdfjsLib){
+    await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s);});
+  }
+  const lib=window.pdfjsLib;
+  lib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
   const buf=await f.arrayBuffer();const pdf=await lib.getDocument({data:buf}).promise;
-  let txt='';for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i);const c=await pg.getTextContent();txt+=`\n[Sayfa ${i}]\n`+c.items.map(x=>x.str).join(' ');}
+  let txt='';
+  for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i);const c=await pg.getTextContent();txt+=`\n[Sayfa ${i}]\n`+c.items.map(x=>x.str).join(' ');}
   return txt.trim();
 }
 
 function setSt(m){document.getElementById('statusMsg').textContent=m;}
-function setPct(v){curPct=v;document.getElementById('pFill').style.width=v+'%';document.getElementById('pctTxt').textContent=Math.round(v)+'%';const m=v<=29?'Belgeniz güvenli şekilde işleniyor...':v<=85?'Yapay zeka her maddeyi dikkatlice inceliyor...':v<100?'Son rötuşlar yapılıyor, neredeyse bitti...':'Raporunuz hazır!';document.getElementById('microMsg').textContent=m;}
+function setPct(v){curPct=v;document.getElementById('pFill').style.width=v+'%';document.getElementById('pctTxt').textContent=Math.round(v)+'%';const m=v<=29?'Belgeniz güvenli şekilde işleniyor...':v<=85?'Yapay zeka her maddeyi dikkatlice inceliyor...':v<100?'Son rötuşlar yapılıyor...':'Raporunuz hazır!';document.getElementById('microMsg').textContent=m;}
 function startPct(){curPct=15;setPct(15);if(pctTmr)clearInterval(pctTmr);pctTmr=setInterval(()=>{if(curPct<85)setPct(Math.min(curPct+1.5,85));else clearInterval(pctTmr);},1000);}
 function stopPct(){if(pctTmr)clearInterval(pctTmr);}
 function startTips(){tipI=0;document.getElementById('tipTxt').textContent=TIPS[0];if(tipTmr)clearInterval(tipTmr);tipTmr=setInterval(()=>{document.getElementById('tipBox').style.opacity='0';setTimeout(()=>{tipI=(tipI+1)%TIPS.length;document.getElementById('tipTxt').textContent=TIPS[tipI];document.getElementById('tipBox').style.opacity='1';},350);},4000);}
 
-function parseAns(raw,keys){const secs=[];let cur=null;for(const line of raw.split('\n')){const t=line.trim().replace(/^\*+/,'').replace(/\*+$/,'').replace(/^#+\s*/,'').trim();const m=keys.find(k=>t.startsWith(k.key));if(m){if(cur)secs.push(cur);cur={label:m.label,color:m.color,lines:[]};}else if(cur&&t)cur.lines.push(t);}if(cur)secs.push(cur);return secs;}
+function parseAns(raw,keys){
+  const secs=[];let cur=null;
+  for(const line of raw.split('\n')){
+    const t=line.trim().replace(/^\*+/,'').replace(/\*+$/,'').replace(/^#+\s*/,'').trim();
+    const m=keys.find(k=>t.startsWith(k.key));
+    if(m){if(cur)secs.push(cur);cur={label:m.label,color:m.color,lines:[]};}
+    else if(cur&&t)cur.lines.push(t);
+  }
+  if(cur)secs.push(cur);return secs;
+}
 
-function renderSecs(secs){return secs.map(s=>{const isC=s.label==='Güven Seviyesi';const cv=isC?((s.lines[0]||'').replace(/[^0-9]/g,'')):null;let body='';if(isC&&cv){body=`<div class="conf-val">%${cv}</div><div class="conf-bar"><div class="conf-fill" style="width:${cv}%"></div></div>`;}else{body='<div class="sec-lines">'+s.lines.map(l=>{const ib=l.startsWith('-')||l.startsWith('•');const tx=l.startsWith('-')?l.slice(1).trim():l.startsWith('•')?l.slice(1).trim():l;return ib?`<div class="sec-line blt"><span class="blt-dot"></span><span>${tx}</span></div>`:`<div class="sec-line">${tx}</div>`;}).join('')+'</div>';}return `<div class="sec-card ${PCOL[s.color]||'c-blue'}"><span class="sec-badge">${s.label}</span>${body}</div>`;}).join('');}
+function renderSecs(secs){
+  return secs.map(s=>{
+    const isC=s.label==='Güven Seviyesi';
+    const cv=isC?((s.lines[0]||'').replace(/[^0-9]/g,'')):null;
+    let body='';
+    if(isC&&cv){body=`<div class="conf-val">%${cv}</div><div class="conf-bar"><div class="conf-fill" style="width:${cv}%"></div></div>`;}
+    else{body='<div class="sec-lines">'+s.lines.map(l=>{const ib=l.startsWith('-')||l.startsWith('•');const tx=l.startsWith('-')?l.slice(1).trim():l.startsWith('•')?l.slice(1).trim():l;return ib?`<div class="sec-line blt"><span class="blt-dot"></span><span>${tx}</span></div>`:`<div class="sec-line">${tx}</div>`;}).join('')+'</div>';}
+    return `<div class="sec-card ${PCOL[s.color]||'c-blue'}"><span class="sec-badge">${s.label}</span>${body}</div>`;
+  }).join('');
+}
 
 function hvStar(n){document.querySelectorAll('.star-btn').forEach((b,i)=>{b.style.color=i<n?'#C9A84C':'#D1D5DB';});}
 function rateStar(n){starR=n;document.getElementById('starBox').style.display='none';document.getElementById('starTy').style.display='flex';document.getElementById('rStars').innerHTML=[1,2,3,4,5].map(i=>`<span style="font-size:20px;color:${i<=n?'#C9A84C':'#D1D5DB'};">★</span>`).join('');}
 
 function openPay(){document.getElementById('payModal').style.display='flex';document.getElementById('payErr').style.display='none';}
 function closePay(){document.getElementById('payModal').style.display='none';}
+
 async function doPay(){
-  document.getElementById('payBtn').disabled=true;document.getElementById('payBtn').textContent='Hazırlanıyor...';
-  try{const res=await fetch('/api/payment/create-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({})});const data=await res.json();if(data.testMode){closePay();dlReport();}else if(data.paymentPageUrl){window.open(data.paymentPageUrl,'_blank');closePay();}else{document.getElementById('payErr').style.display='block';document.getElementById('payErr').textContent=data.error||'Ödeme başlatılamadı.';}}catch{document.getElementById('payErr').style.display='block';document.getElementById('payErr').textContent='Ödeme başarısız.';}
-  document.getElementById('payBtn').disabled=false;document.getElementById('payBtn').textContent='Ödemeye Geç →';
+  document.getElementById('payBtn').disabled=true;
+  document.getElementById('payBtn').textContent='Hazırlanıyor...';
+  try{
+    const res=await fetch('/api/payment/create-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({})});
+    const data=await res.json();
+    if(data.testMode){closePay();dlReport();}
+    else if(data.paymentPageUrl){window.open(data.paymentPageUrl,'_blank');closePay();}
+    else{document.getElementById('payErr').style.display='block';document.getElementById('payErr').textContent=data.error||'Ödeme başlatılamadı.';}
+  }catch{
+    document.getElementById('payErr').style.display='block';
+    document.getElementById('payErr').textContent='Ödeme başarısız. Lütfen tekrar deneyin.';
+  }
+  document.getElementById('payBtn').disabled=false;
+  document.getElementById('payBtn').textContent='Ödemeye Geç →';
 }
 function devDL(){closePay();dlReport();}
 
 function dlReport(){
   if(!pAnswer){alert('Önce analiz yapın.');return;}
-  const now=new Date();
-  const ds=now.toLocaleString('tr-TR');
+  const now=new Date();const ds=now.toLocaleString('tr-TR');
   const secs=parseAns(pAnswer,PKEYS);
-  const sh=secs.length>0?secs.map(s=>`
-    <div style="margin-bottom:24px;page-break-inside:avoid;">
-      <div style="font-size:14px;font-weight:bold;color:#1B2E4B;border-bottom:2px solid #C9A84C;padding-bottom:6px;margin-bottom:10px;">${s.label}</div>
-      <div style="font-size:12px;color:#2D2D2D;line-height:1.9;">
-        ${s.lines.map(l=>l.startsWith('•')||l.startsWith('-')?
-          `<div style="display:flex;gap:8px;margin-bottom:5px;"><span style="color:#C9A84C;flex-shrink:0;">•</span><span>${l.replace(/^[•\-]\s*/,'')}</span></div>`:
-          `<p style="margin-bottom:6px;">${l}</p>`
-        ).join('')}
-      </div>
-    </div>`).join(''):
-    `<div style="white-space:pre-wrap;font-size:12px;line-height:1.8;">${pAnswer}</div>`;
-
-  const html=`<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<title>KDR Analiz Raporu</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,sans-serif;max-width:720px;margin:0 auto;padding:40px 24px;color:#2D2D2D;}
-.cover{background:#1B2E4B;color:#fff;padding:48px 40px;text-align:center;border-radius:12px;margin-bottom:28px;}
-.cover h1{color:#C9A84C;font-size:24px;margin-bottom:8px;}
-.cover p{color:#a0b0c8;font-size:13px;}
-.doc-box{background:rgba(255,255,255,0.08);border-radius:8px;padding:14px 20px;margin:18px 0;}
-.gold{height:3px;background:#C9A84C;margin:20px 0;border-radius:2px;}
-.disc{background:#FDF8F0;border-left:3px solid #C9A84C;padding:12px 16px;border-radius:6px;font-size:11px;color:#888;margin-top:28px;line-height:1.6;}
-.ft{text-align:center;color:#C9A84C;font-size:11px;margin-top:14px;}
-.print-bar{position:fixed;top:0;left:0;right:0;background:#1B2E4B;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999;}
-.print-bar span{color:#C9A84C;font-size:13px;font-weight:bold;}
-.print-btn{background:#C9A84C;color:#1B2E4B;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:bold;cursor:pointer;}
-.spacer{height:50px;}
-@media print{.print-bar,.spacer{display:none;}body{padding:20px;}
-  .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  @page{margin:15mm;}}
-</style>
-</head>
-<body>
-<div class="print-bar">
-  <span>🏗️ Kentsel Dönüşüm Rehberi — Analiz Raporu</span>
-  <button class="print-btn" onclick="window.print()">📄 PDF Olarak Kaydet</button>
-</div>
-<div class="spacer"></div>
-<div class="cover">
-  <h1>🏗️ Kentsel Dönüşüm Rehberi</h1>
-  <p>Yapay Zeka Destekli Ön Analiz Raporu</p>
-  <div class="doc-box">
-    <p style="color:#C9A84C;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">ANALİZ EDİLEN BELGE</p>
-    <p style="font-weight:bold;color:#fff;">${pFName}</p>
-    <p style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:5px;">${ds}</p>
-  </div>
-  <p style="color:rgba(255,255,255,0.35);font-size:10px;margin-top:8px;">Uzman görüşü değildir — Yasal bağlayıcılığı yoktur</p>
-</div>
-<div class="gold"></div>
-${sh}
-<div class="disc">Bu rapor genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı niteliği taşımaz. Önemli kararlar için lisanslı uzman görüşü alınız.</div>
-<div class="ft">kentseldonusumrehber.com.tr · ${ds}</div>
-</body>
-</html>`;
-
-  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
-const newWin=window.open('','_blank');
-if(!newWin){
-  alert('Lütfen tarayıcınızın açılır pencere engelleyicisini kapatın ve tekrar deneyin.');
-  return;
-}
-newWin.document.open();
-newWin.document.write(html);
-newWin.document.close();
-}
-  function toggleSidebar(){
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
-  document.getElementById('sidebarOverlay').classList.toggle('open');
-}
-function closeSidebar(){
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-  document.getElementById('sidebarOverlay').classList.remove('open');
-}
-function navTo(page){
-  closeSidebar();
-  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
-  document.getElementById('nav-'+page).classList.add('active');
-  document.getElementById('homePg').style.display='none';
-  document.getElementById('kvkkPg').style.display='none';
-  document.getElementById('kulPg').style.display='none';
-  document.querySelectorAll('.page-content').forEach(p=>p.classList.remove('active'));
-  if(page==='uzmanlar'){
-  document.getElementById('homePg').style.display='none';
-  document.querySelectorAll('.page-content').forEach(p=>p.classList.remove('active'));
-  document.getElementById('pg-uzmanlar').style.display='block';
-  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
-  window.scrollTo(0,0);
-  return;
-}
-  if(page==='home'){
-    document.getElementById('homePg').style.display='block';
-  } else {
-    document.getElementById('pg-'+page).classList.add('active');
-  }
-  window.scrollTo(0,0);
+  const sh=secs.length>0?secs.map(s=>`<div style="margin-bottom:24px;page-break-inside:avoid;"><div style="font-size:14px;font-weight:bold;color:#1B2E4B;border-bottom:2px solid #C9A84C;padding-bottom:6px;margin-bottom:10px;">${s.label}</div><div style="font-size:12px;color:#2D2D2D;line-height:1.9;">${s.lines.map(l=>l.startsWith('•')||l.startsWith('-')?`<div style="display:flex;gap:8px;margin-bottom:5px;"><span style="color:#C9A84C;flex-shrink:0;">•</span><span>${l.replace(/^[•\-]\s*/,'')}</span></div>`:`<p style="margin-bottom:6px;">${l}</p>`).join('')}</div></div>`).join(''):`<div style="white-space:pre-wrap;font-size:12px;line-height:1.8;">${pAnswer}</div>`;
+  const html=`<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>KDR Analiz Raporu</title><style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:Arial,sans-serif;max-width:720px;margin:0 auto;padding:60px 24px 40px;color:#2D2D2D;}.cover{background:#1B2E4B;color:#fff;padding:48px 40px;text-align:center;border-radius:12px;margin-bottom:28px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.cover h1{color:#C9A84C;font-size:24px;margin-bottom:8px;}.cover p{color:#a0b0c8;font-size:13px;}.doc-box{background:rgba(255,255,255,0.08);border-radius:8px;padding:14px 20px;margin:18px 0;}.gold{height:3px;background:#C9A84C;margin:20px 0;border-radius:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.disc{background:#FDF8F0;border-left:3px solid #C9A84C;padding:12px 16px;border-radius:6px;font-size:11px;color:#888;margin-top:28px;line-height:1.6;}.ft{text-align:center;color:#C9A84C;font-size:11px;margin-top:14px;}.bar{position:fixed;top:0;left:0;right:0;background:#1B2E4B;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.bar span{color:#C9A84C;font-size:13px;font-weight:bold;}.bar button{background:#C9A84C;color:#1B2E4B;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:bold;cursor:pointer;}@media print{.bar{display:none;}body{padding:20px;}}</style></head><body><div class="bar"><span>🏗️ Kentsel Dönüşüm Rehberi</span><button onclick="window.print()">📄 PDF Olarak Kaydet</button></div><div class="cover"><h1>🏗️ Kentsel Dönüşüm Rehberi</h1><p>Yapay Zeka Destekli Ön Analiz Raporu</p><div class="doc-box"><p style="color:#C9A84C;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">ANALİZ EDİLEN BELGE</p><p style="font-weight:bold;color:#fff;">${pFName}</p><p style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:5px;">${ds}</p></div><p style="color:rgba(255,255,255,0.35);font-size:10px;margin-top:8px;">Uzman görüşü değildir — Yasal bağlayıcılığı yoktur</p></div><div class="gold"></div>${sh}<div class="disc">Bu rapor genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı niteliği taşımaz. Önemli kararlar için lisanslı uzman görüşü alınız.</div><div class="ft">kentseldonusumrehber.com.tr · ${ds}</div></body></html>`;
+  const newWin=window.open('','_blank');
+  if(!newWin){alert('Lütfen tarayıcınızın açılır pencere engelleyicisini kapatın ve tekrar deneyin.');return;}
+  newWin.document.open();
+  newWin.document.write(html);
+  newWin.document.close();
 }
 </script>
 </body>
