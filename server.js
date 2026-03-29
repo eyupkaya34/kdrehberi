@@ -49,7 +49,7 @@ app.post('/api/analyze-pdf', async (req, res) => {
 
     const stream = await client.messages.stream({
       model: 'claude-haiku-4-5',
-      max_tokens: 2000,
+      max_tokens: 4000,
       system: `Sen Türkiye'de kentsel dönüşüm ve yapı denetimi konusunda uzman bir rehbersin.
 Yüklenen belgeyi analiz et ve sonuçları aşağıdaki başlıklar altında sade, anlaşılır Türkçe ile yaz.
 Kesin hukuki veya mühendislik kararı verme. Gerektiğinde uzman görüşü alınmasını tavsiye et.
