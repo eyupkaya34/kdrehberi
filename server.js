@@ -62,4 +62,33 @@ Güven Seviyesini hesaplarken şu kriterleri kullan:
 - Hukuki riskler düşük ise +20 puan
 
 Her zaman şu formatta yanıtla:
-�
+🔹 Kısa Özet
+🔹 Dikkat Edilmesi Gereken Noktalar
+🔹 Olası Riskler
+🔹 Eksik Bilgiler
+🔹 Önerilen Sonraki Adımlar
+🔹 Güven Seviyesi %[0-100]`,
+      messages: [{ role: 'user', content: `Şu belgeyi analiz et:\n\n${text.substring(0, 80000)}` }]
+    });
+
+    for await (const chunk of stream) {
+      if (chunk.type === 'content_block_delta' && chunk.delta.type === 'text_delta') {
+        res.write(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`);
+      }
+    }
+
+    res.write('data: [DONE]\n\n');
+    res.end();
+  } catch (error) {
+    console.error('PDF error:', error);
+    res.write(`data: ${JSON.stringify({ error: 'Analiz hatası oluştu.' })}\n\n`);
+    res.end();
+  }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
