@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kentsel Dönüşüm Rehberi | kentseldonusumrehber.com.tr</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f5f5f0; color: #2D2D2D; }
+header { background: #1B2E4B; padding: 20px; text-align: center; }
+header h1 { color: #C9A84C; font-size: 24px; }
+header p { color: #a0b0c8; font-size: 13px; margin-top: 4px; }
+.container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
+.card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 20px; border: 0.5px solid #e0ddd5; }
+h2 { color: #1B2E4B; font-size: 18px; margin-bottom: 16px; }
+textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: Arial; resize: none; }
+button { width: 100%; padding: 13px; background: #1B2E4B; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 12px; }
+button:hover { background: #C9A84C; }
+.gold-btn { background: #C9A84C; color: #1B2E4B; }
+.gold-btn:hover { background: #b8973b; color: white; }
+#chatAnswer, #pdfAnswer { margin-top: 16px; padding: 16px; background: #f8f7f2; border-left: 3px solid #C9A84C; border-radius: 6px; display: none; white-space: pre-wrap; line-height: 1.7; font-size: 14px; }
+.disclaimer { font-size: 11px; color: #999; margin-top: 12px; text-align: center; }
+.loading { color: #C9A84C; font-size: 14px; margin-top: 12px; display: none; }
+input[type="file"] { width: 100%; padding: 12px; border: 2px dashed #1B2E4B; border-radius: 8px; font-size: 14px; cursor: pointer; background: #f8f7f2; }
+.trust { display: flex; gap: 12px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+.trust span { background: white; padding: 8px 16px; border-radius: 20px; font-size: 12px; border: 1px solid #e0ddd5; }
+footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏗️ Kentsel Dönüşüm Rehberi</h1>
+  <p>Yapay Zeka Destekli Rehberlik | kentseldonusumrehber.com.tr</p>
+</header>
+
+<div class="container">
+
+  <div class="trust">
+    <span>🔒 SSL Güvenli</span>
+    <span>⚡ Anında Analiz</span>
+    <span>🇹🇷 Türkiye'de Geliştirildi</span>
+    <span>1.000+ Belge Analiz Edildi</span>
+  </div>
+
+  <!-- Chat Section -->
+  <div class="card">
+    <h2>💬 Sorunuzu Sorun</h2>
+    <textarea id="chatInput" rows="3" placeholder="Örnek: Binam 40 yıllık. Risk altında mıyım?"></textarea>
+    <button onclick="askQuestion()">Soruyu Sor →</button>
+    <div class="loading" id="chatLoading">Yanıt hazırlanıyor...</div>
+    <div id="chatAnswer"></div>
+    <p class="disclaimer">⚠️ Bu bilgiler genel rehberlik amaçlıdır. Hukuki karar değildir.</p>
+  </div>
+
+  <!-- PDF Section -->
+  <div class="card">
+    <h2>📄 Belge Analizi</h2>
+    <input type="file" id="pdfFile" accept=".pdf" onchange="handleFile(this)">
+    <div id="fileInfo" style="font-size:12px;color:#999;margin-top:8px;"></div>
+    <button class="gold-btn" onclick="analyzePDF()" id="analyzeBtn" style="display:none;">Belgeyi Analiz Et →</button>
+    <div class="loading" id="pdfLoading">PDF analiz ediliyor... Lütfen bekleyin.</div>
+    <div id="pdfAnswer"></div>
+    <p class="disclaimer">⚠️ Yüklenen belgeler analiz sonrası otomatik silinir. Hukuki karar değildir.</p>
+  </div>
+
+  <!-- Expert Section -->
+  <div class="card" style="text-align:center; background:#1B2E4B;">
+    <h2 style="color:#C9A84C;">👤 Uzmanla Görüş</h2>
+    <p style="color:#a0b0c8; margin-bottom:16px; font-size:14px;">Durumunuz için doğru uzmanı bulun</p>
+    <button onclick="findExpert()" style="background:#C9A84C; color:#1B2E4B;">Uzman Bul →</button>
+  </div>
+
+</div>
+
+<footer>
+  <p>kentseldonusumrehber.com.tr — Bu platform genel bilgilendirme amaçlıdır. Kesin hukuki veya mühendislik kararı vermez.</p>
+</footer>
+
+<script>
+let extractedText = '';
+let pageCount = 0;
+
+async function askQuestion() {
+  const question = document.getElementById('chatInput').value.trim();
+  if (!question || question.length < 5) return alert('Lütfen bir soru yazın.');
+  
+  document.getElementById('chatLoading').style.display = 'block';
+  document.getElementById('chatAnswer').style.display = 'none';
+  
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question })
+    });
+    const data = await res.json();
+    document.getElementById('chatAnswer').textContent = data.answer;
+    document.getElementById('chatAnswer').style.display = 'block';
+  } catch (e) {
+    document.getElementById('chatAnswer').textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+    document.getElementById('chatAnswer').style.display = 'block';
+  }
+  document.getElementById('chatLoading').style.display = 'none';
+}
+
+async function handleFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  
+  if (file.size > 10 * 1024 * 1024) {
+    alert('Dosya 10MB sınırını aşıyor. Lütfen daha küçük bir dosya yükleyin.');
+    return;
+  }
+
+  document.getElementById('fileInfo').textContent = 'Belge okunuyor...';
+  
+  const pdfjsLib = await import('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  pageCount = pdf.numPages;
+  
+  if (pageCount > 30) {
+    alert('Belgeniz 30 sayfadan fazla. Lütfen en fazla 30 sayfalık bölümler halinde yükleyin.');
+    return;
+  }
+
+  let fullText = '';
+  for (let i = 1; i <= pageCount; i++) {
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    fullText += content.items.map(item => item.str).join(' ') + '\n';
+  }
+  
+  extractedText = fullText;
+  document.getElementById('fileInfo').textContent = `${file.name} · ${pageCount} sayfa`;
+  document.getElementById('analyzeBtn').style.display = 'block';
+}
+
+async function analyzePDF() {
+  if (!extractedText) return alert('Lütfen önce bir PDF yükleyin.');
+  
+  document.getElementById('pdfLoading').style.display = 'block';
+  document.getElementById('pdfAnswer').style.display = 'none';
+  document.getElementById('analyzeBtn').style.display = 'none';
+  
+  let fullAnswer = '';
+  
+  try {
+    const res = await fetch('/api/analyze-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: extractedText })
+    });
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    
+    document.getElementById('pdfAnswer').style.display = 'block';
+    document.getElementById('pdfLoading').style.display = 'none';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      
+      const chunk = decoder.decode(value);
+      const lines = chunk.split('\n');
+      
+      for (const line of lines) {
+        if (line.startsWith('data: ') && line !== 'data: [DONE]') {
+          try {
+            const data = JSON.parse(line.slice(6));
+            if (data.text) {
+              fullAnswer += data.text;
+              document.getElementById('pdfAnswer').textContent = fullAnswer;
+            }
+          } catch(e) {}
+        }
+      }
+    }
+  } catch (e) {
+    document.getElementById('pdfAnswer').textContent = 'Analiz sırasında bir hata oluştu.';
+    document.getElementById('pdfAnswer').style.display = 'block';
+    document.getElementById('pdfLoading').style.display = 'none';
+  }
+  
+  document.getElementById('analyzeBtn').style.display = 'block';
+}
+
+function findExpert() {
+  alert('Kentsel dönüşüm için:\n\n• Hukuki destek: Türkiye Barolar Birliği\n• Teknik destek: Mimarlar Odası\n• Mali destek: Mali Müşavirler Odası\n\nBu raporu uzmanınıza gösterin.');
+}
+</script>
+
+</body>
+</html>
